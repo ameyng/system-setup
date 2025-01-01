@@ -1,0 +1,5 @@
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=1min
+AccuracySec=5min
+Persistent=true

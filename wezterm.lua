@@ -102,13 +102,15 @@ else
     scrollback_lines = 100000,
     default_prog = defaultShellProgram,
     launch_menu = launchMenuEntries,
+    enable_wayland = false,
 
     -- Appearance --
     ----------------
     warn_about_missing_glyphs = false,
     default_cursor_style = "BlinkingBlock",
     hide_mouse_cursor_when_typing = true,
-    use_fancy_tab_bar = false,
+    use_fancy_tab_bar = true,
+    show_tab_index_in_tab_bar = false,
 
     -- Tabs --
     ----------
@@ -116,7 +118,6 @@ else
 
     -- Windows & Panes --
     ---------------------
-    window_close_confirmation = "NeverPrompt",
     pane_focus_follows_mouse = true,
     adjust_window_size_when_changing_font_size = false,
 
@@ -244,44 +245,13 @@ else
       -- [ modifierKey + b ] -> go to the previous tab.
       { key = "b", mods = modifierKey , action = wezterm.action.ActivateTabRelative(-1) },
 
-      -- Copy --
-      ----------
+      -- Copy & paste --
+      ------------------
       -- [ modifierKey + c ] -> copy selection to clipboard and primary selection buffer.
       { key = "c", mods = modifierKey, action = wezterm.action.CopyTo "ClipboardAndPrimarySelection" },
 
-      -- [ CMD + c ] -> copy selection to clipboard and primary selection buffer.
-      { key = "c", mods = "CMD", action = wezterm.action.CopyTo "ClipboardAndPrimarySelection" },
-
-      -- [ CTRL + c ] -> if some text is selected, copy selection to clipboard and primary selection buffer.
-      -- Otherwise, send "CTRL + c" (usually interpreted as a terminate signal) to the terminal.
-      {
-        key = "c",
-        mods = "CTRL",
-        action = wezterm.action_callback(
-          function(window, pane)
-            -- Check if any text is selected.
-            local isTextSelected = window:get_selection_text_for_pane(pane) ~= ''
-            if isTextSelected then
-              -- If some text is selected copy it to the clipboard and primary selection buffer.
-              window:perform_action(wezterm.action.CopyTo "ClipboardAndPrimarySelection", pane)
-            else
-              -- Otherwise, send the keys pressed to the terminal.
-              window:perform_action(wezterm.action.SendKey { key = "c", mods = "CTRL" }, pane)
-            end
-          end
-        )
-      },
-
-      -- Paste --
-      -----------
       -- [ modifierKey + v ] -> paste from clipboard.
       { key = "v", mods = modifierKey, action = wezterm.action.PasteFrom "Clipboard" },
-
-      -- [ CTRL + v ] -> paste from clipboard.
-      { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom "Clipboard" },
-
-      -- [ CMD + v ] -> paste from clipboard.
-      { key = "v", mods = "CMD", action = wezterm.action.PasteFrom "Clipboard" },
 
       -- Adjust font size --
       ----------------------
@@ -300,6 +270,7 @@ else
       { key = "Backspace", mods = modifierKey, action = wezterm.action.Multiple { wezterm.action.ClearScrollback "ScrollbackAndViewport", wezterm.action.SendKey { key = "L", mods = "CTRL" } } }
 
     }
+
   }
 
   -- Export the above defined "config" table
