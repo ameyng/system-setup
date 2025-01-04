@@ -104,6 +104,14 @@ else
     launch_menu = launchMenuEntries,
     enable_wayland = false,
 
+    -- Bells --
+    -----------
+    audible_bell = 'Disabled',
+    visual_bell = {
+      fade_in_duration_ms = 0,
+      fade_out_duration_ms = 0
+    },
+
     -- Appearance --
     ----------------
     warn_about_missing_glyphs = false,
@@ -111,6 +119,13 @@ else
     hide_mouse_cursor_when_typing = true,
     use_fancy_tab_bar = true,
     show_tab_index_in_tab_bar = false,
+    enable_scroll_bar = true,
+    window_padding = {
+      left = 0,
+      right = '0.8%',
+      top = 0,
+      bottom = 0
+    },
 
     -- Tabs --
     ----------
