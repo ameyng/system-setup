@@ -181,16 +181,16 @@ else
       -- Tab/pane management --
       -------------------------
       -- [ modifierKey + h ] -> create a split to the left.
-      { key = 'h', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Left' } }
+      { key = 'h', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Left' } },
 
       -- [ modifierKey + j ] -> create a split below.
-      { key = 'j', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Down' } }
+      { key = 'j', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Down' } },
 
       -- [ modifierKey + k ] -> create a split above.
-      { key = 'k', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Up' } }
+      { key = 'k', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Up' } },
 
       -- [ modifierKey + l ] -> create a split to the right.
-      { key = 'l', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Right' } }
+      { key = 'l', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Right' } },
 
       -- [ modifierKey + right-arrow ] -> expand current pane towards the right.
       { key = "RightArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Right", 2 } },
