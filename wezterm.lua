@@ -95,7 +95,7 @@ else
   config = {
     -- General --
     -------------
-    check_for_updates_interval_seconds = 604800,
+    check_for_updates = false,
     default_cwd = os.getenv("HOME"),
     disable_default_key_bindings = true,
     disable_default_mouse_bindings = true,
@@ -107,7 +107,7 @@ else
     -- Appearance --
     ----------------
     warn_about_missing_glyphs = false,
-    default_cursor_style = "BlinkingBlock",
+    default_cursor_style = 'SteadyBlock',
     hide_mouse_cursor_when_typing = true,
     use_fancy_tab_bar = true,
     show_tab_index_in_tab_bar = false,
@@ -180,28 +180,17 @@ else
 
       -- Tab/pane management --
       -------------------------
-      -- [ modifierKey + s ] -> prompt a menu presenting pane split options.
-      {
-        key = "s",
-        mods = modifierKey,
-        action = wezterm.action.InputSelector {
-          action = wezterm.action_callback(
-            function(window, pane, id, label)
-              if ( id ~= nil ) and ( label ~= nil ) then
-                pane:split { direction = id }
-              end
-            end
-          ),
-          description = "Select the direction to split the pane [ Enter = accept, Esc = cancel, / = filter ]",
-          title = "Select the direction to split the pane",
-          choices = {
-            { label = " " .. wezterm.nerdfonts.fa_angle_left .. " " .. wezterm.nerdfonts.cod_split_horizontal .. " " .. "Left", id = "Left" },
-            { label = " " .. wezterm.nerdfonts.cod_split_vertical .. " " .. wezterm.nerdfonts.fa_angle_down .. " " .. "Down", id = "Bottom" },
-            { label = " " .. wezterm.nerdfonts.fa_angle_up .. " " .. wezterm.nerdfonts.cod_split_vertical .. " " .. "Up", id = "Top" },
-            { label = " " .. wezterm.nerdfonts.cod_split_horizontal .. " " .. wezterm.nerdfonts.fa_angle_right .. " " .. "Right", id = "Left" },
-          }
-        }
-      },
+      -- [ modifierKey + h ] -> create a split to the left.
+      { key = 'h', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Left' } }
+
+      -- [ modifierKey + j ] -> create a split below.
+      { key = 'j', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Down' } }
+
+      -- [ modifierKey + k ] -> create a split above.
+      { key = 'k', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Up' } }
+
+      -- [ modifierKey + l ] -> create a split to the right.
+      { key = 'l', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Right' } }
 
       -- [ modifierKey + right-arrow ] -> expand current pane towards the right.
       { key = "RightArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Right", 2 } },
