@@ -127,14 +127,12 @@ else
       bottom = 0
     },
 
-    -- Tabs --
-    ----------
-    mouse_wheel_scrolls_tabs = false,
-
-    -- Windows & Panes --
-    ---------------------
+    -- Windows, Tabs & Panes --
+    ---------------------------
     pane_focus_follows_mouse = true,
     adjust_window_size_when_changing_font_size = false,
+    mouse_wheel_scrolls_tabs = false,
+    prefer_to_spawn_tabs = true,
 
     -- Mouse bindings --
     --------------------
@@ -207,20 +205,29 @@ else
       -- [ modifierKey + l ] -> create a split to the right.
       { key = 'l', mods = modifierKey, action = wezterm.action.SplitPane { direction = 'Right' } },
 
+      -- [ modifierKey + z ] -> toggle pane zoom.
+      { key = 'z', mods = modifierKey, action = wezterm.action.TogglePaneZoomState },
+
       -- [ modifierKey + right-arrow ] -> expand current pane towards the right.
-      { key = "RightArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Right", 2 } },
+      { key = "RightArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Right", 1 } },
 
       -- [ modifierKey + left-arrow ] -> expand current pane towards the left.
-      { key = "LeftArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Left", 2 } },
+      { key = "LeftArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Left", 1 } },
 
       -- [ modifierKey + up-arrow ] -> expand current pane towards the top.
-      { key = "UpArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Up", 2 } },
+      { key = "UpArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Up", 1 } },
 
       -- [ modifierKey + down-arrow ] -> expand current pane towards the bottom.
-      { key = "DownArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Down", 2 } },
+      { key = "DownArrow", mods = modifierKey, action = wezterm.action.AdjustPaneSize { "Down", 1 } },
 
       -- [ modifierKey + t ] -> create a new tab.
       { key = "t", mods = modifierKey, action = wezterm.action.SpawnTab "CurrentPaneDomain" },
+
+      -- [ modifierKey + . ] -> move the current tab to the left.
+      { key = "<", mods = modifierKey, action = wezterm.action.MoveTabRelative(-1) },
+
+      -- [ modifierKey + , ] -> move the current tab to the right.
+      { key = ">", mods = modifierKey, action = wezterm.action.MoveTabRelative(1) },
 
       -- [ modifierKey + w ] -> close the current pane, tab and window, in that order.
       { key = "w", mods = modifierKey, action = wezterm.action.CloseCurrentPane { confirm = false } },
@@ -260,13 +267,13 @@ else
       -- Adjust font size --
       ----------------------
       -- [ modifierKey + = ] -> increase font size.
-      { key = "=", mods = modifierKey, action = wezterm.action.IncreaseFontSize },
+      { key = "+", mods = modifierKey, action = wezterm.action.IncreaseFontSize },
 
       -- [ modifierKey + - ] -> decrease font size.
-      { key = "-", mods = modifierKey, action = wezterm.action.DecreaseFontSize },
+      { key = "_", mods = modifierKey, action = wezterm.action.DecreaseFontSize },
 
       -- [ modifierKey + 0 ] -> reset font size.
-      { key = "0", mods = modifierKey, action = wezterm.action.ResetFontSize },
+      { key = ")", mods = modifierKey, action = wezterm.action.ResetFontSize },
 
       -- Scrollback --
       ----------------
