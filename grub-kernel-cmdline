@@ -1,1 +1,1 @@
-rd.driver.blacklist=nouveau nowatchdog nvidia-drm.modeset=1 mem_sleep_default=deep nmi_watchdog=0 quiet modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau snd_hda_intel.power_save=1
+rd.driver.blacklist=nouveau nowatchdog mem_sleep_default=deep nmi_watchdog=0 quiet modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau
