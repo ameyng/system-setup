@@ -1,0 +1,36 @@
+# Enable PCI runtime power management for various devices.
+# Check the below link for more information -
+# https://wiki.archlinux.org/title/Power_management#PCI_Runtime_Power_Management
+
+# Intel Corporation Raptor Lake-S PCH Shared SRAM.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x7a27", ATTR{power/control}="auto"
+
+# Sandisk Corp WD Black SN850X NVMe SSD.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x15b7", ATTR{device}=="0x5030", ATTR{power/control}="auto"
+
+# Intel Corporation Device A702 (some unknown device).
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0xa702", ATTR{power/control}="auto"
+
+# Intel Corporation Raptor Lake SPI (flash) Controller.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x7a24", ATTR{power/control}="auto"
+
+# Intel Corporation Raptor Lake-S PCH CNVi WiFi.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x7a70", ATTR{power/control}="auto"
+
+# Intel Corporation Raptor Lake Dynamic Platform and Thermal Framework Processor Participant.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0xa71d", ATTR{power/control}="auto"
+
+# Intel Corporation Device 7A0C (some unknown device).
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x7a0c", ATTR{power/control}="auto"
+
+# Intel Corporation GNA Scoring Accelerator module.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0xa74f", ATTR{power/control}="auto"
+
+# Intel Corporation USB controller.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x1135", ATTR{power/control}="auto"
+
+# Samsung Electronics Co Ltd NVMe SSD Controller PM9A1/PM9A3/980PRO.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x144d", ATTR{device}=="0xa80a", ATTR{power/control}="auto"
+
+# Realtek Semiconductor Co., Ltd. RTL8125 2.5GbE Controller.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x10ec", ATTR{device}=="0x8125", ATTR{power/control}="auto"
