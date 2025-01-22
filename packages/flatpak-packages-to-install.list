@@ -5,6 +5,8 @@ com.jgraph.drawio.desktop
 com.obsproject.Studio
 com.usebottles.bottles
 com.valvesoftware.Steam
+org.freedesktop.Platform.VulkanLayer.gamescope
+com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 de.haeckerfelix.Fragments
 io.github.flattool.Warehouse
 it.mijorus.gearlever

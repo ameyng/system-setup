@@ -4,6 +4,15 @@
 
 echo -e "Applying various tweaks to GNOME using the 'gsettings' CLI utility."
 
+echo -e 'Disabling existing/enabled extensions.'
+gsettings set org.gnome.shell enabled-extensions "[]"
+
+echo -e 'Disabling installation of extensions.'
+gsettings set org.gnome.shell allow-extension-installation false
+
+echo -e 'Disabling installation of user extensions.'
+gsettings set org.gnome.shell disable-user-extensions true
+
 echo -e 'Enabling dark theme.'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
@@ -18,6 +27,9 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
 
 echo -e 'Disable desktop scaling.'
 gsettings set org.gnome.desktop.interface scaling-factor 0
+
+echo -e 'Enable full font hinting.'
+gsettings set org.gnome.desktop.interface font-hinting 'full'
 
 echo -e "Add 'minimize' and 'maximize' buttons to window title-bars."
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
