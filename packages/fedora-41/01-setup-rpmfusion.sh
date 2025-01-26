@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# The 'echo' statements above the commands are self-explanatory.
-
 echo -e 'Enabling/installing the RPM Fusion free repository.'
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
@@ -13,3 +11,6 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 
 echo -e 'Updating the AppStream metadata.'
 sudo dnf update @core
+
+echo -e 'Uninstalling unnecessary packages.'
+sudo dnf autoremove

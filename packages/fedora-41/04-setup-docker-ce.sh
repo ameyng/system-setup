@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
-# The 'echo' statements above the commands are self-explanatory.
-
 echo -e 'Removing existing/older components if installed.'
-sudo dnf remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine
+sudo dnf remove docker \
+                docker-client \
+                docker-client-latest \
+                docker-common \
+                docker-latest \
+                docker-latest-logrotate \
+                docker-logrotate \
+                docker-selinux \
+                docker-engine-selinux \
+                docker-engine
 
 echo -e "Installing the 'dnf-plugins-core' package."
 sudo dnf install dnf-plugins-core
@@ -19,3 +26,6 @@ sudo systemctl enable --now docker.service
 
 echo -e "Enabling the containerd 'systemd' service."
 sudo systemctl enable --now containerd.service
+
+echo -e 'Uninstalling unnecessary packages.'
+sudo dnf autoremove

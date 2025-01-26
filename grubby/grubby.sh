@@ -15,5 +15,5 @@ echo -e '- Enable the Kernel Mode Setting feature for the NVIDIA driver.'
 echo -e '- Enable a framebuffer device for the NVIDIA driver.'
 sudo grubby --update-kernel=ALL --args='quiet nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco mem_sleep_default=deep modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
 
-echo -e 'Printing the kernel command-line parameters from the default GRUB entry.'
+echo -e '\nPrinting the kernel command-line parameters from the default GRUB entry.'
 sudo grubby --info=DEFAULT

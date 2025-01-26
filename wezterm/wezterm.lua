@@ -125,6 +125,7 @@ else
       top = 0,
       bottom = 0
     },
+    font_size = 16,
 
     -- Windows, Tabs & Panes --
     ---------------------------
