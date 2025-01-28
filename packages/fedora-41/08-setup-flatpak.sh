@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 echo -e 'Removing the pre-configured filtered flatpak repositories.'
-flatpak remote-delete fedora
-flatpak remote-delete fedora-testing
+sudo flatpak remote-delete fedora
+sudo flatpak remote-delete fedora-testing
 
 echo -e 'Adding the full/unfiltered Flathub remote repository at the system level.'
 sudo flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
