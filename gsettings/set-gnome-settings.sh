@@ -10,6 +10,9 @@ echo -e '\nInterface'
 echo -e '- Set the accent colour to orange.'
 gsettings set org.gnome.desktop.interface accent-color 'orange'
 
+echo -e '- Scale up the text by fifty percent.'
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
+
 echo -e '- Set the clock format to 12 hours, with AM/PM.'
 gsettings set org.gnome.desktop.interface clock-format '12h'
 
@@ -20,7 +23,7 @@ echo -e '- Set the overall colour scheme to a dark theme.'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 echo -e '- Disable hot corners.'
-gsettings set org.gnome.desktop.interface enable-hot-corners false
+gsettings set org.gnome.desktop.interface enable-hot-corners true
 
 echo -e '- Enable full hinting for fonts'
 gsettings set org.gnome.desktop.interface font-hinting 'full'

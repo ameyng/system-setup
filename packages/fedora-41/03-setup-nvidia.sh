@@ -30,7 +30,7 @@ echo -e "Version: $(modinfo -F version nvidia)"
 echo -e "License: $(modinfo -F license nvidia)"
 
 echo -e 'Rebuilding the initial RAM disk.'
-sudo dracut -f -v --no-compress
+sudo dracut --force --verbose --no-compress --regenerate-all
 
 echo -e 'Uninstalling unnecessary packages.'
 sudo dnf autoremove
@@ -52,6 +52,4 @@ sudo grubby --update-kernel=ALL --remove-args='quiet'
 echo -e '\nPrinting the kernel command-line parameters from the default GRUB entry.'
 sudo grubby --info=DEFAULT
 
-echo -e "Rebooting in 10 seconds, press 'Ctrl + C' to terminate."
-sleep 10
-systemctl reboot
+echo -e '\nIt is now STRONGLY RECOMMENDED to reboot!'

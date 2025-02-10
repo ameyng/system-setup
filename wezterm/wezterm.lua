@@ -102,6 +102,7 @@ else
     scrollback_lines = 100000,
     default_prog = defaultShellProgram,
     launch_menu = launchMenuEntries,
+    enable_wayland = false,
 
     -- Bells --
     -----------
@@ -116,7 +117,7 @@ else
     warn_about_missing_glyphs = false,
     default_cursor_style = 'SteadyBlock',
     hide_mouse_cursor_when_typing = true,
-    use_fancy_tab_bar = true,
+    use_fancy_tab_bar = false,
     show_tab_index_in_tab_bar = false,
     enable_scroll_bar = true,
     window_padding = {
@@ -126,6 +127,7 @@ else
       bottom = 0
     },
     font_size = 16,
+    color_scheme = 'NvimDark',
 
     -- Windows, Tabs & Panes --
     ---------------------------

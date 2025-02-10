@@ -12,6 +12,4 @@ sudo mokutil --import /etc/pki/akmods/certs/public_key.der
 echo -e 'Uninstalling unnecessary packages.'
 sudo dnf autoremove
 
-echo -e "Rebooting in 10 seconds, press 'Ctrl + C' to terminate."
-sleep 10
-systemctl reboot
+echo -e '\nIt is now STRONGLY RECOMMENDED to reboot!'

@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
+echo -e "Enabling parallel downloads using 'dnf'."
+echo -e '\n# Enable downloading upto 16 packages in parallel.\nmax_parallel_downloads=16' | sudo tee -a /etc/dnf/dnf.conf > /dev/null
+
 echo -e 'Uninstalling certain packages from which some will be replaced with equivalent flatpak packages later.'
-sudo dnf remove firefox \
+sudo dnf remove --assumeyes \
+                firefox \
                 firefox-langpacks \
                 snapshot \
                 gnome-contacts \
@@ -46,19 +50,24 @@ sudo dnf remove firefox \
                 gnome-text-editor \
                 gnome-tour \
                 rhythmbox \
-                gnome-calendar
-
-echo -e 'Uninstalling certain package groups.'
-sudo dnf group remove firefox \
-                      libreoffice \ 
-                      guest-desktop-agents
+                gnome-calendar \
+                gnome-shell-extension-apps-menu \
+                gnome-shell-extension-background-logo \
+                gnome-shell-extension-places-menu \
+                gnome-shell-extension-window-list \
+                amd-gpu-firmware \
+                amd-ucode-firmware \
+                hyperv-daemons \
+                open-vm-tools-desktop \
+                qemu-guest-agent \
+                spice-vdagent \
+                spice-webdavd \
+                virtualbox-guest-additions
 
 echo -e 'Uninstalling unnecessary packages.'
-sudo dnf autoremove
+sudo dnf autoremove --assumeyes
 
 echo -e 'Upgrading the system.'
-sudo dnf upgrade
+sudo dnf upgrade --assumeyes
 
-echo -e "Rebooting in 10 seconds, press 'Ctrl + C' to terminate."
-sleep 10
-systemctl reboot
+echo -e '\nIt is now STRONGLY RECOMMENDED to reboot!'
