@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-echo -e 'Upgrading the system.'
-sudo dnf upgrade --assumeyes
-
-echo -e '\nIt is now STRONGLY RECOMMENDED to reboot!'
-
-#!/usr/bin/env bash
-
 echo -e 'Enabling/installing the RPM Fusion free repository.'
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
