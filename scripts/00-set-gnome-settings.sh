@@ -175,9 +175,6 @@ echo -e '\nMiscellaneous'
 echo -e '- When adjusting the volume increment/decrement in steps of five percent.'
 gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 5
 
-echo -e '- Enable the experimental feature for supporting variable refresh rate.'
-gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
-
 # Keybindings
 echo -e '\nKeybindings'
 
