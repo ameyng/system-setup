@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Check if the 'grubby' binary is not available in 'PATH'.
+if [[ 0 -ne $(command -v grubby > /dev/null 2>&1; echo $?) ]]; then
+
+  # Print an error and exit.
+  echo -e "The program 'grubby' is not installed."
+  exit 1
+
+fi
+
 # Check if the script is executing as 'root'.
 if [[ ${EUID} -ne 0 ]]; then
 

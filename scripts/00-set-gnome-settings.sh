@@ -1,184 +1,146 @@
 #!/usr/bin/env bash
 
-# The 'echo' statements above the commands are self-explanatory.
-
 echo -e "Applying various tweaks to GNOME using the 'gsettings' CLI utility.\n"
 
 # Interface
 echo -e '\nInterface'
-
 echo -e '- Set the accent colour to orange.'
-gsettings set org.gnome.desktop.interface accent-color 'orange'
-
 echo -e '- Scale up the text by fifty percent.'
-gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
-
 echo -e '- Set the clock format to 12 hours, with AM/PM.'
-gsettings set org.gnome.desktop.interface clock-format '12h'
-
 echo -e '- Show the day of the week on the clock in the top bar.'
-gsettings set org.gnome.desktop.interface clock-show-weekday true
-
 echo -e '- Set the overall colour scheme to a dark theme.'
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-
 echo -e '- Disable hot corners.'
-gsettings set org.gnome.desktop.interface enable-hot-corners true
-
 echo -e '- Enable full hinting for fonts'
-gsettings set org.gnome.desktop.interface font-hinting 'full'
-
 echo -e '- Show the battery percentage in the top bar.'
+gsettings set org.gnome.desktop.interface accent-color 'orange'
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
+gsettings set org.gnome.desktop.interface clock-format '12h'
+gsettings set org.gnome.desktop.interface clock-show-weekday true
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface enable-hot-corners true
+gsettings set org.gnome.desktop.interface font-hinting 'full'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 # Mouse
 echo -e '\nMouse'
-
 echo -e '- Disable natural scrolling when using the mouse.'
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 
 # Touchpad
 echo -e '\nTouchpad'
-
 echo -e '- Disable the touchpad when typing.'
-gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
-
 echo -e '- Disable scrolling using the touchpad edge.'
-gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
-
 echo -e '- Disable natural scrolling when using the touchpad.'
-gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
-
 echo -e '- Enable tapping and dragging when using the touchpad.'
-gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
-
 echo -e '- Enable drag lock when tapping and dragging using the touchpad.'
-gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
-
 echo -e '- Enable tap to click when using the touchpad.'
-gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-
 echo -e '- Enable scrolling using two finger gestures when using the touchpad.'
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
+gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 
 # Privacy
 echo -e '\nPrivacy'
-
 echo -e '- Mark temporary files as old after 7 days.'
-gsettings set org.gnome.desktop.privacy old-files-age 7
-
 echo -e '- Mark recent file entries as old after 7 days.'
-gsettings set org.gnome.desktop.privacy recent-files-max-age 7
-
 echo -e '- Automatically delete old temporary files.'
-gsettings set org.gnome.desktop.privacy remove-old-temp-files true
-
 echo -e '- Disable automatic problem reporting.'
+gsettings set org.gnome.desktop.privacy old-files-age 7
+gsettings set org.gnome.desktop.privacy recent-files-max-age 7
+gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy report-technical-problems false
 
 # Extensions
 echo -e '\nExtensions'
-
 echo -e '- Disable installation of extensions.'
-gsettings set org.gnome.shell allow-extension-installation false
-
 echo -e '- Disable user extensions.'
-gsettings set org.gnome.shell disable-user-extensions true
-
 echo -e '- Disable all currently enabled extensions.'
+gsettings set org.gnome.shell allow-extension-installation false
+gsettings set org.gnome.shell disable-user-extensions true
 gsettings set org.gnome.shell enabled-extensions "[]"
 
 # GNOME software
 echo -e '\nGNOME Software'
-
-# echo -e '- Disable automatic installation software updates.'
-gsettings set org.gnome.software allow-updates false
-
-# echo -e '- Disable automatic downloading of software updates.'
-gsettings set org.gnome.software download-updates false
-
-# echo -e '- Disable software update notifications.'
-gsettings set org.gnome.software download-updates-notify false
-
+echo -e '- Disable automatic installation software updates.'
+echo -e '- Disable automatic downloading of software updates.'
+echo -e '- Disable software update notifications.'
 echo -e "- Show user ratings in the 'GNOME Software' application."
+gsettings set org.gnome.software allow-updates false
+gsettings set org.gnome.software download-updates false
+gsettings set org.gnome.software download-updates-notify false
 gsettings set org.gnome.software show-ratings true
 
 # Window preferences
 echo -e '\nWindow prefrences'
-
 echo -e '- Enable the minimize, maximize and close buttons at the top-right corner of the windows.'
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
-
 echo -e '- Enable focusing windows when the mouse pointer hovers over them.'
-gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
-
 echo -e '- Enable just a single workspace'
-gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
-
 echo -e '- Disable dynamic workspaces.'
-gsettings set org.gnome.mutter dynamic-workspaces false
-
 echo -e '- Enable workspaces on all displays, not just the primary display.'
-gsettings set org.gnome.mutter workspaces-only-on-primary false
-
 echo -e '- Show windows from all workspaces when switching windows.'
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.mutter workspaces-only-on-primary false
 gsettings set org.gnome.shell.window-switcher current-workspace-only false
 
 # File manager
 echo -e '\nFile manager'
-
 echo -e '- Show the exact date and time in the file timestamps.'
-gsettings set org.gnome.nautilus.preferences date-time-format 'detailed'
-
 echo -e '- Use the list view instead of the grid view.'
-gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
-
 echo -e "- Show the 'create link' option in the right-click menu."
-gsettings set org.gnome.nautilus.preferences show-create-link true
-
 echo -e "- Show the 'delete permanently' option in the right-click menu."
-gsettings set org.gnome.nautilus.preferences show-delete-permanently true
-
 echo -e '- Show hidden files.'
-gsettings set org.gnome.nautilus.preferences show-hidden-files true
-
 echo -e '- Show the name, size, date modified, owner, group and permissions columns/fields in the list view.'
+gsettings set org.gnome.nautilus.preferences date-time-format 'detailed'
+gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
+gsettings set org.gnome.nautilus.preferences show-create-link true
+gsettings set org.gnome.nautilus.preferences show-delete-permanently true
+gsettings set org.gnome.nautilus.preferences show-hidden-files true
 gsettings set org.gnome.nautilus.list-view default-column-order "['name', 'size', 'date_modified', 'owner', 'group', 'permissions', 'mime_type', 'type', 'where', 'date_modified_with_time', 'date_accessed', 'date_created', 'recency', 'starred']"
 gsettings set org.gnome.nautilus.list-view default-visible-columns "['name', 'size', 'date_modified', 'owner', 'group', 'permissions']"
 
 # Filepicker
 echo -e '\nFilepicker'
-
 echo -e '- Show the timestamps in a 12 hour format.'
+echo -e '- Include the time along with the date in the timestamp.'
+echo -e '- Show hidden files.'
+echo -e '- Sort directories first.'
+echo -e '- Set the baseline window size to 1366x768'
 gsettings set org.gtk.gtk4.Settings.FileChooser clock-format '12h'
 gsettings set org.gtk.Settings.FileChooser clock-format '12h'
-
-echo -e '- Include the time along with the date in the timestamp.'
 gsettings set org.gtk.gtk4.Settings.FileChooser date-format 'with-time'
 gsettings set org.gtk.Settings.FileChooser date-format 'with-time'
-
-echo -e '- Show hidden files.'
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
 gsettings set org.gtk.Settings.FileChooser show-hidden true
-
-echo -e '- Sort directories first.'
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
-
-echo -e '- Set the baseline window size to 1366x768'
 gsettings set org.gtk.gtk4.Settings.FileChooser window-size '(1366,768)'
 gsettings set org.gtk.Settings.FileChooser window-size '(1366,768)'
 
 # Miscellaneous
 echo -e '\nMiscellaneous'
-
 echo -e '- When adjusting the volume increment/decrement in steps of five percent.'
 gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 5
 
 # Keybindings
 echo -e '\nKeybindings'
-
 echo -e '- Disable all keybindings except the ones we will set.'
+echo -e '- Alt + F4 -> Close window.'
+echo -e '- Super/Win + Up/Down -> Maximize/restore the active window.'
+echo -e '- Alt + Tab -> Switch windows.'
+echo -e '- Super/Win + Left/Right -> Tile the active window to the left/right.'
+echo -e '- Print -> Quick/direct screenshot.'
+echo -e '- Super/Win + Print -> Show screenshot UI.'
+echo -e '- Shift + Super/Win + l -> Logout.'
+echo -e '- Super/Win + l -> Lock screen.'
+echo -e '- Super/Win + Space -> Search.'
+echo -e '- Enable actions for all keyboard special keys like monitor brightness up/down, volume up/down, etc.'
 gsettings set org.gnome.desktop.wm.keybindings activate-window-menu "[]"
 gsettings set org.gnome.desktop.wm.keybindings always-on-top "[]"
 gsettings set org.gnome.desktop.wm.keybindings begin-move "[]"
@@ -382,37 +344,17 @@ gsettings set org.gnome.shell.keybindings toggle-application-view "[]"
 gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
 gsettings set org.gnome.shell.keybindings toggle-overview "[]"
 gsettings set org.gnome.shell.keybindings toggle-quick-settings "[]"
-
-echo -e '- Alt + F4 -> Close window.'
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
-
-echo -e '- Super/Win + Up/Down -> Maximize/restore the active window.'
 gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>Up']"
 gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>Down']"
-
-echo -e '- Alt + Tab -> Switch windows.'
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
-
-echo -e '- Super/Win + Left/Right -> Tile the active window to the left/right.'
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Left']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Super>Right']"
-
-echo -e '- Print -> Quick/direct screenshot.'
 gsettings set org.gnome.shell.keybindings screenshot "['Print']"
-
-echo -e '- Super/Win + Print -> Show screenshot UI.'
 gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Super>Print']"
-
-echo -e '- Shift + Super/Win + l -> Logout.'
 gsettings set org.gnome.settings-daemon.plugins.media-keys logout "['<Shift><Super>l']"
-
-echo -e '- Super/Win + l -> Lock screen.'
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super>l']"
-
-echo -e '- Super/Win + Space -> Search.'
 gsettings set org.gnome.settings-daemon.plugins.media-keys search "['<Super>space']"
-
-echo -e '- Enable actions for all keyboard special keys like monitor brightness up/down, volume up/down, etc.'
 gsettings set org.gnome.settings-daemon.plugins.media-keys keyboard-brightness-down "['KbdBrightnessDown']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys keyboard-brightness-up "['KbdBrightnessUp']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys mic-mute "['AudioMicMute']"

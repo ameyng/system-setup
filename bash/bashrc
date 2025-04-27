@@ -1,0 +1,28 @@
+# Check if a global 'bashrc' file exists at '/etc/bashrc'.
+if [[ -f '/etc/bashrc' ]]; then
+
+  # Source it.
+  source /etc/bashrc
+
+fi
+
+# Check if the directory '~/.bashrc.d' exists.
+if [[ -d "${HOME}/.bashrc.d" ]]; then
+
+  # Iterate over all files in the directory.
+  for shell_file in ${HOME}/.bashrc.d/*.sh; do
+
+    # Check if the file is valid.
+    if [[ -f "${shell_file}" ]]; then
+
+      # Source it.
+      source "${shell_file}"
+
+    fi
+
+  done
+
+  # Unset the variable used for iteration.
+  unset shell_file
+
+fi
