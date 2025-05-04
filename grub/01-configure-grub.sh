@@ -28,14 +28,13 @@ echo -e '- Disable all watchdogs.'
 echo -e '- Disable the NMI watchdog explicitly.'
 echo -e "- Disable the Intel 'iTCO_wdt' watchdog explicitly."
 echo -e "- Disable the AMD 'sp5100_tco' watchdog explicitly."
-echo -e "- Set the default suspend state to 'deep' i.e. in-memory."
 echo -e "- Disable the 'nouveau' driver from being loaded in the initial ramdisk stage."
 echo -e "- Disable the 'nouveau' driver from being loaded later in the boot process."
 echo -e '- Enable the Kernel Mode Setting feature for the NVIDIA driver.'
 echo -e '- Enable a framebuffer device for the NVIDIA driver.'
 echo -e '- Disable active-state power management as it can often break.'
 echo -e '- Enable logging upto level 4 i.e. warnings.'
-grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco mem_sleep_default=deep modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1 pcie_aspm=off loglevel=4'
+grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1 pcie_aspm=off loglevel=4'
 
 echo -e '\nPrinting the kernel command-line parameters from the default GRUB entry.\n'
 grubby --info=DEFAULT

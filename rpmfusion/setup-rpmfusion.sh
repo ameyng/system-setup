@@ -24,7 +24,7 @@ fi
 
 # Install the repositories.
 echo -e 'Installing the RPM Fusion free and non-free repositories.'
-sudo dnf install --refresh --assumeyes "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+sudo dnf install --refresh --assumeyes --setopt=localpkg_gpgcheck=1 "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
 
 # Enable the Cisco OpenH264 repository.
 echo -e 'Enabling the Cisco OpenH264 repository.'
