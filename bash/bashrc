@@ -1,22 +1,28 @@
+# 'Bash' configuration entrypoint.
+
+# Exit on any error.
+# Exit if any unset variable is used/referenced.
+# set -eu
+
 # Check if a global 'bashrc' file exists at '/etc/bashrc'.
-if [[ -f '/etc/bashrc' ]]; then
+if [ -f '/etc/bashrc' ]; then
 
   # Source it.
-  source /etc/bashrc
+  . /etc/bashrc
 
 fi
 
 # Check if the directory '~/.bashrc.d' exists.
-if [[ -d "${HOME}/.bashrc.d" ]]; then
+if [ -d "${HOME}/.bashrc.d" ]; then
 
   # Iterate over all files in the directory.
-  for shell_file in ${HOME}/.bashrc.d/*.sh; do
+  for shell_file in "${HOME}/.bashrc.d/"*.sh; do
 
     # Check if the file is valid.
-    if [[ -f "${shell_file}" ]]; then
+    if [ -f "${shell_file}" ]; then
 
       # Source it.
-      source "${shell_file}"
+      . "${shell_file}"
 
     fi
 

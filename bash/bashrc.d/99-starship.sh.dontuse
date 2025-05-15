@@ -1,9 +1,0 @@
-# Starship shell prompt.
-
-# Check if the 'starship' binary is available in 'PATH'.
-if [[ 0 -eq $(command -v starship > /dev/null 2>&1; echo $?) ]]; then
-
-  # Initialize 'starship'.
-  eval "$(starship init bash)"
-
-fi

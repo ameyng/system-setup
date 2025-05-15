@@ -58,10 +58,8 @@ gsettings set org.gnome.desktop.privacy report-technical-problems false
 
 # Extensions
 echo 'Extensions'
-echo '- Enable installation of extensions.'
 echo '- Disable user extensions.'
 echo '- Disable all currently enabled extensions.'
-gsettings set org.gnome.shell allow-extension-installation true
 gsettings set org.gnome.shell disable-user-extensions true
 gsettings set org.gnome.shell enabled-extensions "[]"
 

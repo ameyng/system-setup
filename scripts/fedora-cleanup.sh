@@ -24,7 +24,12 @@ if [ "${current_user_id}" -ne 0 ]; then
 else
 
   # Uninstall unnecessary packages.
-  dnf remove --offline --refresh --assumeyes \
+  dnf remove --offline --refresh \
+  firefox \
+  firefox-langpacks \
+  zram-generator \
+  zram-generator-defaults \
+  tmux \
   snapshot \
   gnome-contacts \
   gnome-weather \
@@ -84,6 +89,7 @@ else
   gnome-shell-extension-launch-new-instance \
   gnome-shell-extension-places-menu \
   gnome-shell-extension-window-list \
+  gnome-shell-extension-common \
   docker \
   docker-client \
   docker-client-latest \
@@ -105,7 +111,15 @@ else
   tiwilink-firmware \
   mt7xxx-firmware \
   nvidia-gpu-firmware \
-  nxpwireless-firmware
+  nxpwireless-firmware \
+  libvirt-client \
+  libvirt-daemon \
+  libvirt-daemon-common \
+  libvirt-gconfig \
+  libvirt-glib \
+  libvirt-gobject \
+  libvirt-libs \
+  libvirt-ssh-proxy
 
   echo 'It is now strongly recommended to reboot using the command below'
   echo "'sudo dnf offline reboot'"
