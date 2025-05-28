@@ -56,24 +56,18 @@ else
   libreoffice-langpack-en \
   libreoffice-pyuno \
   libreoffice-xsltfilter \
-  gnome-calculator \
-  simple-scan \
   gnome-boxes \
   baobab \
   gnome-connections \
   gnome-disk-utility \
   evince \
   gnome-characters \
-  gnome-logs \
-  gnome-font-viewer \
   rhythmbox \
   gnome-tour \
-  gnome-text-editor \
   gnome-calendar \
   gnome-abrt \
   gnome-system-monitor \
   totem \
-  loupe \
   yelp \
   qemu-guest-agent \
   podman \
@@ -119,12 +113,40 @@ else
   libvirt-glib \
   libvirt-gobject \
   libvirt-libs \
-  libvirt-ssh-proxy
+  libvirt-ssh-proxy \
+  kdebugsettings \
+  kmahjongg \
+  kmines \
+  kpat \
+  kolourpaint \
+  akregator \
+  kaddressbook \
+  kgpg \
+  kmail \
+  kontact \
+  korganizer \
+  digikam \
+  k3b \
+  kamera \
+  kamoso \
+  kmouth \
+  krdc \
+  qrca \
+  ktorrent \
+  ktnef \
+  kontact \
+  pim-sieve-editor \
+  neochat \
+  plasma-drkonqi.{i686,x86_64} \
+  kfind \
+  krfb \
+  kde-connect
 
-  echo 'It is now strongly recommended to reboot using the command below'
-  echo "'sudo dnf offline reboot'"
+  # Unset the variables used.
+  unset current_user_id
+
+  # Try to reboot to finish package removals.
+  echo "Attempting to reboot now, please enter 'n/N' if you wish to reboot manually later using the command 'sudo dnf offline reboot'."
+  dnf offline reboot
 
 fi
-
-# Unset the variables used.
-unset current_user_id

@@ -1,12 +1,4 @@
-dnf upgrade --assumeyes --refresh --offline --setopt=max_parallel_downloads=4 --setopt=fastestmirror=True --setopt=minrate=512k --setopt=timeout=3 --setopt=gpgcheck=True
-
-
 USERNAME='' EMAIL_ADDRESS='' PHYSICAL_DISK_PATH='' REAL_NAME='' homectl create "${USERNAME}" --email-address="${EMAIL_ADDRESS}" --fs-type=ext4 --image-path="${PHYSICAL_DISK_PATH}" --luks-pbkdf-hash-algorithm=sha3-512 --luks-pbkdf-memory-cost=4294967296 --luks-pbkdf-parallel-threads=16 --luks-pbkdf-time-cost=32 --luks-pbkdf-type=argon2id --member-of=wheel --real-name="${REAL_NAME}" --storage=luks --luks-extra-mount-options='relatime,lazytime,commit=60' --luks-discard=no --luks-offline-discard=no
-
-
-dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
-dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-dnf copr enable wezfurlong/wezterm-nightly
 
 dnf install --assumeyes --offline --refresh --setopt=max_parallel_downloads=4 --setopt=minrate=512k --setopt=timeout=3 --setopt=fastestmirror=True --setopt=gpgcheck=True --setopt=install_weak_deps=False neovim wl-clipboard gdisk git tree-sitter-cli gcc ripgrep brave-browser docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras kmodtool akmods mokutil openssl python3-neovim python3-rpmautospec inotify-tools wezterm decibels papers papers-nautilus showtime
 
