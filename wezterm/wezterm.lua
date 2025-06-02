@@ -148,6 +148,7 @@ else
     hide_mouse_cursor_when_typing = true,
     use_fancy_tab_bar = true,
     show_tab_index_in_tab_bar = false,
+    show_close_tab_button_in_tabs = false,
     enable_scroll_bar = true,
     window_padding = {
       left = 0,

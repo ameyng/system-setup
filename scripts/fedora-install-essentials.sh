@@ -28,6 +28,7 @@ else
     --offline \
     --refresh \
     --assumeyes \
+    --allowerasing \
     --setopt=max_parallel_downloads=8 \
     --setopt=minrate=1024k \
     --setopt=timeout=3 \
@@ -56,7 +57,11 @@ else
     shfmt \
     solaar \
     steam \
-    powertop
+    powertop \
+    google-chrome-stable \
+    brave-browser \
+    ffmpeg \
+    intel-media-driver
 
   # Unset the variables used.
   unset current_user_id

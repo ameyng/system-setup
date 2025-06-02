@@ -45,8 +45,7 @@ else
     echo " - Disable the 'nouveau' driver from being loaded later in the boot process."
     echo ' - Enable the Kernel Mode Setting feature for the NVIDIA driver.'
     echo ' - Enable a framebuffer device for the NVIDIA driver.'
-    echo ' - Disable active-state power management as it can often break.'
-    grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1 pcie_aspm=off'
+    grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
 
     echo 'Printing the kernel command-line parameters from the default GRUB entry.'
     grubby --info=DEFAULT
