@@ -4,7 +4,13 @@
 # Exit if any unset variable is used/referenced.
 # set -eu
 
-# Golang
+# '~/.local/bin'.
+fn_prepend_to_path "${HOME}/.local/bin"
+
+# '~/bin'.
+fn_prepend_to_path "${HOME}/bin"
+
+# Golang.
 fn_prepend_to_path '/usr/local/go/bin'
 
 # Cargo i.e. Rust.

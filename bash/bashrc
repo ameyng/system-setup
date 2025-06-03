@@ -13,10 +13,10 @@ if [ -f '/etc/bashrc' ]; then
 fi
 
 # Check if the directory '~/.bashrc.d' exists.
-if [ -d "${HOME}/.bashrc.d" ]; then
+if [ -d "${HOME}"/.bashrc.d ]; then
 
   # Iterate over all files in the directory.
-  for shell_file in "${HOME}/.bashrc.d/"*.sh; do
+  for shell_file in "${HOME}"/.bashrc.d/*.sh; do
 
     # Check if the file is valid.
     if [ -f "${shell_file}" ]; then
