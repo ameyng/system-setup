@@ -67,7 +67,6 @@ sudo dnf remove \
   im-chooser \
   kjournald \
   kde-partitionmanager \
-  kwalletmanager5 \
   setroubleshoot-server \
   plasma-systemmonitor \
   ark \

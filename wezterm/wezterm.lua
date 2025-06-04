@@ -149,7 +149,7 @@ else
     use_fancy_tab_bar = true,
     show_tab_index_in_tab_bar = false,
     show_close_tab_button_in_tabs = false,
-    enable_scroll_bar = true,
+    enable_scroll_bar = false,
     window_padding = {
       left = 0,
       right = '0.8%',
