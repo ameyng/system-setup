@@ -1,0 +1,10 @@
+[Unit]
+Description="(Timer) Enable power saving for Intel sound cards using the 'snd_hda_intel' kernel driver."
+
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,13 +1,4 @@
 #!/bin/sh
 
-# Export the required environment variables.
-export __NV_PRIME_RENDER_OFFLOAD='1'
-export __GLX_VENDOR_LIBRARY_NAME='nvidia'
-export __VK_LAYER_NV_optimus='NVIDIA_only'
-
-# Execute the program/application/binary supplied as the argument.
-# exec $@
-# exec "$@"
-# exec "${@}"
-exec ${@}
-# exec "$@"
+# Set the required environment variables and execute the argument.
+__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"

@@ -29,6 +29,10 @@ sudo dnf install \
   shfmt \
   solaar \
   steam \
+  decibels \
+  papers \
+  papers-nautilus \
+  showtime \
   powertop \
   google-chrome-stable \
   brave-browser \
