@@ -65,13 +65,9 @@ gsettings set org.gnome.shell enabled-extensions "[]"
 
 # GNOME software
 echo 'GNOME Software'
-echo '- Disable automatic installation software updates.'
-echo '- Disable automatic downloading of software updates.'
-echo '- Disable software update notifications.'
+echo '- Disable automatic download/installation software updates.'
 echo "- Show user ratings in the 'GNOME Software' application."
-gsettings set org.gnome.software allow-updates false
 gsettings set org.gnome.software download-updates false
-gsettings set org.gnome.software download-updates-notify false
 gsettings set org.gnome.software show-ratings true
 
 # Window preferences
