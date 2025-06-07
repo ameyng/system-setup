@@ -8,6 +8,10 @@ set -eu
 sudo dnf remove \
   --offline \
   --assumeyes \
+  --refresh \
+  amd-gpu-firmware \
+  amd-ucode-firmware \
+  yelp \
   snapshot \
   gnome-contacts \
   gnome-weather \
@@ -23,10 +27,8 @@ sudo dnf remove \
   rhythmbox \
   gnome-tour \
   gnome-calendar \
-  gnome-abrt \
   gnome-system-monitor \
   totem \
-  yelp \
   gnome-shell-extension-appindicator \
   gnome-shell-extension-apps-menu \
   gnome-shell-extension-background-logo \
