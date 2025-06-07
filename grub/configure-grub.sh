@@ -26,8 +26,7 @@ else
   echo " - Disable the 'nouveau' driver from being loaded later in the boot process."
   echo ' - Enable the Kernel Mode Setting feature for the NVIDIA driver.'
   echo ' - Enable a framebuffer device for the NVIDIA driver.'
-  echo ' - Disable kernel lockdown mode.'
-  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1 lockdown=none'
+  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
 
   echo ''
   echo 'Printing the kernel command-line parameters from the default GRUB entry.'
@@ -36,7 +35,12 @@ else
 
   echo ''
   echo 'IMPORTANT!'
+  echo '==========================================================================='
+  echo 'To disable kernel lockdown mode (if supported by kernel compilation flags):'
+  echo '==========================================================================='
+  echo ''
   echo 'To properly enable hibernation support, run the below commands (depending on your setup).'
+  echo "sudo grubby --update-kernel=ALL --args='lockdown=none'"
   echo ''
   echo '==================================='
   echo 'If hibernating to a swap partition:'

@@ -1,3 +1,5 @@
+# Copy this file into '/etc/systemd/system'.
+
 [Unit]
 Description="Enable power saving for Intel sound cards using the 'snd_hda_intel' kernel driver."
 
