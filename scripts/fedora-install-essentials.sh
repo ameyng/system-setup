@@ -8,8 +8,9 @@ set -eu
 echo 'Installing the required packages.'
 sudo dnf install \
   --offline \
-  --allowerasing \
   --assumeyes \
+  --refresh \
+  --allowerasing \
   neovim \
   gdisk \
   git \
@@ -29,6 +30,8 @@ sudo dnf install \
   shfmt \
   solaar \
   steam \
+  mangohud \
+  goverlay \
   decibels \
   papers \
   papers-nautilus \
@@ -38,7 +41,22 @@ sudo dnf install \
   brave-browser \
   ffmpeg \
   intel-media-driver \
-  iwd
+  iwd \
+  virt-install \
+  libvirt-daemon-config-network \
+  libvirt-daemon-kvm \
+  qemu-kvm \
+  virt-manager \
+  virt-viewer \
+  guestfs-tools \
+  python3-libguestfs \
+  virt-top \
+  systemd-container \
+  asusctl \
+  asusctl-rog-gui \
+  procs \
+  bat \
+  ripgrep
 
 # Try to reboot to finish package removals.
 echo "Attempting to reboot now, please enter 'n/N' if you wish to reboot manually later using the command 'sudo dnf offline reboot'."

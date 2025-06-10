@@ -7,7 +7,7 @@ set -eu
 # Interface
 echo 'Interface'
 echo '- Set the accent colour to orange.'
-# echo '- Scale up the text by fifty percent.'
+echo '- Scale up the text by seventy-five percent.'
 echo '- Set the clock format to 12 hours, with AM/PM.'
 echo '- Show the day of the week on the clock in the top bar.'
 echo '- Set the overall colour scheme to a dark theme.'
@@ -15,13 +15,17 @@ echo '- Disable hot corners.'
 echo '- Enable full hinting for fonts'
 echo '- Show the battery percentage in the top bar.'
 gsettings set org.gnome.desktop.interface accent-color 'orange'
-# gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.75
 gsettings set org.gnome.desktop.interface clock-format '12h'
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface font-hinting 'full'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+# Sound
+echo 'Sound'
+echo ''
 
 # Mouse
 echo 'Mouse'

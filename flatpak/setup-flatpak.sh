@@ -73,21 +73,27 @@ script_directory_path="$(cd "$(dirname "$0")" && pwd)"
 echo "Checking if the file 'apps-to-install.list' exists in the directory where this script is located and if it is a valid file."
 if [ -f "${script_directory_path}/apps-to-install.list" ]; then
 
-  # Iterate over the entries in the file.
-  while IFS= read -r flatpak_app_id; do 
+  echo "'apps-to-install.list' exists."
 
-    echo "Installing the program '${flatpak_app_id}'."
-    flatpak install --user --assumeyes "${flatpak_app_id}"
+  # Initialize the list of applications to install.
+  apps_to_install="$(cat ${script_directory_path}/apps-to-install.list)"
 
-  done < "${script_directory_path}/apps-to-install.list"
+  echo 'Installing the below applications:'
+  for application_id in ${apps_to_install}; do echo "- ${application_id}"; done
+
+  # Install the applications at the user level.
+  flatpak install --user --assumeyes ${apps_to_install}
+
+  # Unset the used variables.
+  unset apps_to_install
 
   echo "All requested apps installed."
-
-  # Unset the used variable.
-  unset flatpak_app_id
 
 else
 
   echo "The file 'apps-to-install.list' does not exist in the directory where this script is located or it is not a valid file."
 
 fi
+
+# Unset the used variables.
+unset script_directory_path

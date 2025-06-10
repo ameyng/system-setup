@@ -8,3 +8,9 @@ max_parallel_downloads=4
 
 # Enforce GPG key checks for all remote package installations.
 gpgcheck=True
+
+# Choose mirrors where the minimum download speed is 512 kilobytes/second.
+minrate=512k
+
+# If the minimum download speed is not at or above the above threshold, timeout after 3 seconds.
+timeout=3

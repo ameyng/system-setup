@@ -17,9 +17,12 @@ for target_name in ${targets_to_install}; do echo "- ${target_name}"; done
 # Initialize the final parameter string to be passed to the 'rust' installation script.
 for target_name in ${targets_to_install}; do targets_to_install_param="${targets_to_install_param},${target_name}"; done
 
+# Unset the used variables.
+unset targets_to_install
+unset target_name
+
 # Install 'rust' with the above defined options.
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --default-toolchain stable --target "${targets_to_install_param}"
 
 # Unset the used variables.
-unset targets_to_install
 unset targets_to_install_param

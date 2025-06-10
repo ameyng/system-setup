@@ -63,6 +63,10 @@ sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-releas
 echo "Setting up the 'WezTerm Nightly' COPR repository."
 sudo dnf copr enable --assumeyes wezfurlong/wezterm-nightly
 
+# Asus Linux.
+echo "Setting up the 'Asus Linux' COPR repository."
+sudo dnf copr enable --assumeyes lukenukem/asus-linux
+
 # Visual Studio Code.
 echo "Setting up the 'Visual Studio Code' repository."
 

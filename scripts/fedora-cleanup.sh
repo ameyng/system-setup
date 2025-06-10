@@ -22,6 +22,7 @@ sudo dnf remove \
   baobab \
   gnome-connections \
   gnome-disk-utility \
+  gnome-logs \
   evince \
   gnome-characters \
   rhythmbox \

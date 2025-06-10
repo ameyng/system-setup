@@ -9,6 +9,7 @@ echo 'Installing the required packages.'
 sudo dnf install \
   --offline \
   --assumeyes \
+  --refresh \
   akmod-nvidia \
   xorg-x11-drv-nvidia-cuda \
   xorg-x11-drv-nvidia-power \
@@ -18,7 +19,8 @@ sudo dnf install \
   libva-nvidia-driver.i686 \
   nvidia-vaapi-driver \
   libva-utils \
-  vdpauinfo
+  vdpauinfo \
+  vulkan-tools
 
 # Switch to the open source kernel-space driver.
 echo 'Switching to the open-source kernel-space driver.'
