@@ -1,3 +1,4 @@
-LABEL=ROOT  /          ext4  defaults,x-systemd.device-timeout=0,relatime,lazytime,commit=60  1 1
-LABEL=BOOT  /boot      ext4  defaults,x-systemd.device-timeout=0,relatime,lazytime,commit=60  1 2
-LABEL=UEFI  /boot/efi  vfat  umask=0077,shortname=winnt                                       0 2
+LABEL=ROOT  /          ext4   defaults,x-systemd.device-timeout=0,relatime,lazytime,commit=60  1 1
+LABEL=BOOT  /boot      ext4   defaults,x-systemd.device-timeout=0,relatime,lazytime,commit=60  1 2
+LABEL=UEFI  /boot/efi  vfat   umask=0077,shortname=winnt                                       0 2
+LABEL=DATA  /data      exfat  defaults                                                         0 0

@@ -59,7 +59,7 @@ else
   -- Initialize a list of popular programs to populate the launch menu with.
   -- The below table will be evaluated in order. The program (if installed) that appears first in the below table will appear first in the launch menu.
   local popularProgramsOrdered = {
-    { label = 'WSL (default distribution)', binary = 'wsl' },
+    { label = 'WSL (default distribution)', binary = 'wsl', args = '' },
     { label = 'PowerShell 7', binary = 'pwsh', args = '-NoLogo' },
     { label = 'PowerShell 5', binary = 'powershell', args = '-NoLogo' },
     { label = 'Command Prompt', binary = 'cmd' },
@@ -148,7 +148,6 @@ else
     hide_mouse_cursor_when_typing = true,
     use_fancy_tab_bar = true,
     show_tab_index_in_tab_bar = false,
-    show_close_tab_button_in_tabs = false,
     enable_scroll_bar = false,
     window_padding = {
       left = 0,

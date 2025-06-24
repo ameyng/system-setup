@@ -19,11 +19,18 @@ sudo dnf remove \
   gnome-maps \
   mediawriter \
   gnome-boxes \
+  gnome-calculator \
+  gnome-text-editor \
+  firefox \
   baobab \
   gnome-connections \
   gnome-disk-utility \
   gnome-logs \
   evince \
+  simple-scan \
+  gnome-font-viewer \
+  loupe \
+  gnome-abrt \
   gnome-characters \
   rhythmbox \
   gnome-tour \

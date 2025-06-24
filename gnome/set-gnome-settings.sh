@@ -25,7 +25,9 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 # Sound
 echo 'Sound'
-echo ''
+echo '- Disable all event sounds.'
+gsettings set org.gnome.desktop.sound event-sounds false
+
 
 # Mouse
 echo 'Mouse'
