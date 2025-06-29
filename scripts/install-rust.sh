@@ -5,24 +5,28 @@
 set -eu
 
 # Initialize the list of targets to be installed.
-targets_to_install='aarch64-apple-darwin aarch64-linux-android aarch64-pc-windows-msvc aarch64-unknown-linux-gnu aarch64-unknown-linux-musl wasm32-unknown-emscripten wasm32-unknown-unknown wasm32-wasip1 wasm32-wasip1-threads wasm32-wasip2 wasm32v1-none x86_64-linux-android x86_64-pc-windows-gnu x86_64-pc-windows-msvc x86_64-unknown-linux-gnu x86_64-unknown-linux-musl'
+targets_to_install='aarch64-apple-darwin,aarch64-linux-android,aarch64-pc-windows-msvc,aarch64-unknown-linux-gnu,aarch64-unknown-linux-musl,wasm32-unknown-unknown,x86_64-pc-windows-gnu,x86_64-pc-windows-msvc,x86_64-unknown-linux-gnu,x86_64-unknown-linux-musl'
 
-# Initialize an empty variable to store the target parameter string.
-targets_to_install_param=''
+# Initialize a sub-shell.
+(
+  echo "Installing 'rust' with the auto-detected toolchain and additional targets shown below:"
 
-# Install 'rust' with the auto-detected target as well as the above defined targets.
-echo "Installing 'rust' with the auto-detected toolchain and additional targets shown below:"
-for target_name in ${targets_to_install}; do echo "- ${target_name}"; done
+  # Set the IFS (internal field separator to a comma).
+  IFS=','
 
-# Initialize the final parameter string to be passed to the 'rust' installation script.
-for target_name in ${targets_to_install}; do targets_to_install_param="${targets_to_install_param},${target_name}"; done
+  # Iterate over the targets to be installed and print them with a '-' prefix.
+  for target_name in ${targets_to_install}; do echo "- ${target_name}"; done
+
+  # Unset the used variables.
+  unset target_name
+
+)
+
+# Install 'rust' with the above defined target list.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --target "${targets_to_install}"
 
 # Unset the used variables.
 unset targets_to_install
-unset target_name
 
-# Install 'rust' with the above defined options.
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --default-toolchain stable --target "${targets_to_install_param}"
-
-# Unset the used variables.
-unset targets_to_install_param
+# Cleanly exit
+exit 0

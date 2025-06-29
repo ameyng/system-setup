@@ -11,6 +11,7 @@ sudo dnf install \
   --assumeyes \
   --refresh \
   --allowerasing \
+  --setopt=install_weak_deps=False \
   neovim \
   gdisk \
   git \
@@ -30,7 +31,9 @@ sudo dnf install \
   powertop \
   ffmpeg \
   intel-media-driver \
-  iwd
+  iwd \
+  wl-clipboard \
+  inotify-tools
 
 # Try to reboot to finish package removals.
 echo "Attempting to reboot now, please enter 'n/N' if you wish to reboot manually later using the command 'sudo dnf offline reboot'."

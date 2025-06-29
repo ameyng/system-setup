@@ -63,22 +63,49 @@ fi
 unset system_remotes
 
 # Enable to standard, unfiltered 'Flathub' remote.
-echo "Enabling the standard Flathub remote 'https://dl.flathub.org/repo/flathub.flatpakrepo' at the user installation."
+echo "Enabling the standard Flathub remote 'https://dl.flathub.org/repo/flathub.flatpakrepo' at the system and user installation."
+flatpak remote-add --system --if-not-exists 'flathub' 'https://dl.flathub.org/repo/flathub.flatpakrepo'
 flatpak remote-add --user --if-not-exists 'flathub' 'https://dl.flathub.org/repo/flathub.flatpakrepo'
 
 # Get the path of the directory where this script is located.
 script_directory_path="$(cd "$(dirname "$0")" && pwd)"
 
-# Install any user requested apps from the file 'apps-to-install.list'.
-echo "Checking if the file 'apps-to-install.list' exists in the directory where this script is located and if it is a valid file."
-if [ -f "${script_directory_path}/apps-to-install.list" ]; then
+# Install any user requested apps from the file 'apps-system.list'.
+echo "Checking if the file 'apps-system.list' exists in the directory where this script is located and if it is a valid file."
+if [ -f "${script_directory_path}/apps-system.list" ]; then
 
-  echo "'apps-to-install.list' exists."
+  echo "'apps-system.list' exists."
 
   # Initialize the list of applications to install.
-  apps_to_install="$(cat ${script_directory_path}/apps-to-install.list)"
+  apps_to_install="$(cat ${script_directory_path}/apps-system.list)"
 
-  echo 'Installing the below applications:'
+  echo 'Installing the below applications (system):'
+  for application_id in ${apps_to_install}; do echo "- ${application_id}"; done
+
+  # Install the applications at the system level.
+  flatpak install --system --assumeyes ${apps_to_install}
+
+  # Unset the used variables.
+  unset apps_to_install
+
+  echo "All requested system apps installed."
+
+else
+
+  echo "The file 'apps-system.list' does not exist in the directory where this script is located or it is not a valid file."
+
+fi
+
+# Install any user requested apps from the file 'apps-user.list'.
+echo "Checking if the file 'apps-user.list' exists in the directory where this script is located and if it is a valid file."
+if [ -f "${script_directory_path}/apps-user.list" ]; then
+
+  echo "'apps-user.list' exists."
+
+  # Initialize the list of applications to install.
+  apps_to_install="$(cat ${script_directory_path}/apps-user.list)"
+
+  echo 'Installing the below applications (user):'
   for application_id in ${apps_to_install}; do echo "- ${application_id}"; done
 
   # Install the applications at the user level.
@@ -87,11 +114,11 @@ if [ -f "${script_directory_path}/apps-to-install.list" ]; then
   # Unset the used variables.
   unset apps_to_install
 
-  echo "All requested apps installed."
+  echo "All requested user apps installed."
 
 else
 
-  echo "The file 'apps-to-install.list' does not exist in the directory where this script is located or it is not a valid file."
+  echo "The file 'apps-user.list' does not exist in the directory where this script is located or it is not a valid file."
 
 fi
 

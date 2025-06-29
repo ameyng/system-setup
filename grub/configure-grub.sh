@@ -22,11 +22,9 @@ else
   echo ' - Disable the NMI watchdog explicitly.'
   echo " - Disable the Intel 'iTCO_wdt' watchdog explicitly."
   echo " - Disable the AMD 'sp5100_tco' watchdog explicitly."
-  echo " - Disable the 'nouveau' driver from being loaded in the initial ramdisk stage."
-  echo " - Disable the 'nouveau' driver from being loaded later in the boot process."
-  echo ' - Enable the Kernel Mode Setting feature for the NVIDIA driver.'
-  echo ' - Enable a framebuffer device for the NVIDIA driver.'
-  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau rd.driver.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
+  echo " - Replace the older, 'rhgb' parameter with the new 'splash' parameter."
+  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco splash'
+  sudo grubby --update-kernel=ALL --remove-args='rhgb'
 
   echo ''
   echo 'Printing the kernel command-line parameters from the default GRUB entry.'
