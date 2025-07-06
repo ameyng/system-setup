@@ -13,6 +13,7 @@ sudo dnf install \
   --allowerasing \
   --setopt=install_weak_deps=False \
   neovim \
+  wl-clipboard \
   gdisk \
   git \
   docker-ce \
@@ -31,9 +32,7 @@ sudo dnf install \
   powertop \
   ffmpeg \
   intel-media-driver \
-  iwd \
-  wl-clipboard \
-  inotify-tools
+  iwd
 
 # Try to reboot to finish package removals.
 echo "Attempting to reboot now, please enter 'n/N' if you wish to reboot manually later using the command 'sudo dnf offline reboot'."

@@ -9,8 +9,17 @@ sudo dnf remove \
   --offline \
   --assumeyes \
   --refresh \
+  plymouth \
   amd-gpu-firmware \
   amd-ucode-firmware \
+  atheros-firmware \
+  brcmfmac-firmware \
+  iwlegacy-firmware \
+  iwlwifi-dvm-firmware \
+  libertas-firmware \
+  mt7xxx-firmware \
+  nxpwireless-firmware \
+  tiwilink-firmware \
   yelp \
   snapshot \
   gnome-contacts \

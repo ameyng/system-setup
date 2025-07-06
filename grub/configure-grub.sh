@@ -20,11 +20,13 @@ else
   echo 'Making the following changes to all kernel entries in the GRUB bootloader:'
   echo ' - Disable all watchdogs.'
   echo ' - Disable the NMI watchdog explicitly.'
-  echo " - Disable the Intel 'iTCO_wdt' watchdog explicitly."
-  echo " - Disable the AMD 'sp5100_tco' watchdog explicitly."
-  echo " - Replace the older, 'rhgb' parameter with the new 'splash' parameter."
-  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco splash'
-  sudo grubby --update-kernel=ALL --remove-args='rhgb'
+  echo " - Disable the Intel 'iTCO_wdt' and the AMD 'sp5100_tco' watchdogs explicitly."
+  echo " - Disable the 'nouveau', 'nova_core' and 'nova_drm' kernel modules from being loaded at the initial ramdisk stage and later."
+  echo " - Enable the kernel mode setting parameter for the NVIDIA proprietary driver."
+  echo " - Enable a dedicated framebuffer device for the NVIDIA proprietary driver."
+  echo " - Remove the 'rhgb' and 'splash' parameters for a faster boot with no graphical elements."
+  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau modprobe.blacklist=nova_core modprobe.blacklist=nova_drm rd.driver.blacklist=nouveau rd.driver.blacklist=nova_core rd.driver.blacklist=nova_drm nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
+  sudo grubby --update-kernel=ALL --remove-args='rhgb splash'
 
   echo ''
   echo 'Printing the kernel command-line parameters from the default GRUB entry.'
