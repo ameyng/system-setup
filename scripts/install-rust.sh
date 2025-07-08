@@ -28,5 +28,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-mod
 # Unset the used variables.
 unset targets_to_install
 
-# Cleanly exit
+# Exit with a successful error code.
 exit 0

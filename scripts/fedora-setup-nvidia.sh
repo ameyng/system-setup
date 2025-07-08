@@ -4,10 +4,13 @@
 # Exit if any unset variable is used/referenced.
 set -eu
 
+# Switch to the open source kernel-space driver.
+echo 'Switching to the open-source kernel-space driver.'
+echo '%_with_kmod_nvidia_open 1' | sudo tee '/etc/rpm/macros.nvidia-kmod' > /dev/null
+
 # Install the required packages.
 echo 'Installing the required packages.'
 sudo dnf install \
-  --offline \
   --assumeyes \
   --refresh \
   akmod-nvidia \
@@ -21,10 +24,5 @@ sudo dnf install \
   vdpauinfo \
   vulkan-tools
 
-# Switch to the open source kernel-space driver.
-echo 'Switching to the open-source kernel-space driver.'
-echo '%_with_kmod_nvidia_open 1' | sudo tee '/etc/rpm/macros.nvidia-kmod' > /dev/null
-
-# Try to reboot to finish package removals.
-echo "Attempting to reboot now, please enter 'n/N' if you wish to reboot manually later using the command 'sudo dnf offline reboot'."
-sudo dnf offline reboot
+# Exit with a successful error code.
+exit 0

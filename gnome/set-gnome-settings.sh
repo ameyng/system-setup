@@ -38,14 +38,12 @@ echo '- Disable the touchpad when typing.'
 echo '- Disable scrolling using the touchpad edge.'
 echo '- Disable natural scrolling when using the touchpad.'
 echo '- Enable tapping and dragging when using the touchpad.'
-echo '- Enable drag lock when tapping and dragging using the touchpad.'
 echo '- Enable tap to click when using the touchpad.'
 echo '- Enable scrolling using two finger gestures when using the touchpad.'
 gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
 gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
-gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 

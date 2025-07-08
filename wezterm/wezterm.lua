@@ -132,6 +132,7 @@ else
     scrollback_lines = 100000,
     default_prog = defaultShellProgram,
     launch_menu = launchMenuEntries,
+    enable_wayland = true,
 
     -- Bells --
     -----------

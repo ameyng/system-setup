@@ -9,7 +9,6 @@ sudo dnf remove \
   --offline \
   --assumeyes \
   --refresh \
-  plymouth \
   amd-gpu-firmware \
   amd-ucode-firmware \
   atheros-firmware \

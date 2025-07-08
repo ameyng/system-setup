@@ -25,3 +25,6 @@ echo 'Please set a strong password and remember it, as it will be needed to enro
 sudo mokutil --import '/etc/pki/akmods/certs/public_key.der'
 
 echo "Please reboot your system now."
+
+# Exit with a successful error code.
+exit 0

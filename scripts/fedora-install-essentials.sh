@@ -7,26 +7,16 @@ set -eu
 # Install necessary/essential packages.
 echo 'Installing the required packages.'
 sudo dnf install \
-  --offline \
   --assumeyes \
   --refresh \
   --allowerasing \
-  --setopt=install_weak_deps=False \
-  neovim \
-  wl-clipboard \
-  gdisk \
+  wezterm \
+  vim \
   git \
-  docker-ce \
-  docker-ce-cli \
-  containerd.io \
-  docker-buildx-plugin \
-  docker-compose-plugin \
-  docker-ce-rootless-extras \
   kmodtool \
   akmods \
   mokutil \
   openssl \
-  python3-neovim \
   ShellCheck \
   shfmt \
   powertop \
@@ -34,6 +24,5 @@ sudo dnf install \
   intel-media-driver \
   iwd
 
-# Try to reboot to finish package removals.
-echo "Attempting to reboot now, please enter 'n/N' if you wish to reboot manually later using the command 'sudo dnf offline reboot'."
-sudo dnf offline reboot
+# Exit with a successful error code.
+exit 0

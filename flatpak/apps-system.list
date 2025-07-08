@@ -1,4 +1,3 @@
-org.wezfurlong.wezterm
 com.brave.Browser
 org.gimp.GIMP
 org.gnome.Decibels
@@ -11,5 +10,3 @@ org.gnome.TextEditor
 org.gnome.Totem
 org.gnome.Papers
 org.gnome.Showtime
-org.nickvision.tubeconverter
-de.haeckerfelix.Fragments
