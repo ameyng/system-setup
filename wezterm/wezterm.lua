@@ -37,77 +37,13 @@ else
 
   )
 
-  -- Define a few variables for later use.
-  local isMacOS = ( ( wezterm.target_triple == 'x86_64-apple-darwin' ) or ( wezterm.target_triple == 'aarch64-apple-darwin' ) )
-  local isUnix = ( not ( wezterm.target_triple == 'x86_64-pc-windows-msvc' ) )
-  local isWindows = ( not isUnix )
-
-  -- Launch menu and default program --
-  ---------------------------------------
-
-  -- The launch menu is a customizable list of arbitary programs that can be launched from within 'WezTerm'.
-  -- We will inspect the host system for a few popular programs and add them to the launch menu if they are installed.
-
-  -- While populating the launch menu, we will also select the default terminal program on Windows systems.
-  -- On Unix-like systems, the default terminal program is controlled by the environment variable 'SHELL'.
-  -- On Windows systems, the default terminal program is usually 'Command Prompt', but we will choose 'PowerShell 7' or 'PowerShell 5' if installed.
-
-  -- Initialize an empty table 'launchMenuEntries'.
-  -- This table will be populated with programs and will be used in the configuration later.
-  local launchMenuEntries = {}
-
-  -- Initialize a list of popular programs to populate the launch menu with.
-  -- The below table will be evaluated in order. The program (if installed) that appears first in the below table will appear first in the launch menu.
-  local popularProgramsOrdered = {
-    { label = 'WSL (default distribution)', binary = 'wsl', args = '' },
-    { label = 'PowerShell 7', binary = 'pwsh', args = '-NoLogo' },
-    { label = 'PowerShell 5', binary = 'powershell', args = '-NoLogo' },
-    { label = 'Command Prompt', binary = 'cmd' },
-    { label = 'Default Shell', 'sh' },
-    { label = 'Bash', binary = 'bash' },
-    { label = 'Zsh', binary = 'zsh' },
-    { label = 'Fish', binary = 'fish' },
-    { label = 'Python', binary = 'python' },
-    { label = 'Python 2', binary = 'python2' },
-    { label = 'Python 3', binary = 'python3' }
-  }
-
-  -- Iterate over the above table in order.
-  for _, program in ipairs(popularProgramsOrdered) do
-    -- Windows systems.
-    if isWindows then
-      -- Check if the program is installed.
-      if wezterm.run_child_process { 'where.exe', '/Q', program['binary'] } then
-        -- Add it to the 'launchMenuEntries' table.
-        table.insert(launchMenuEntries, { label = program['label'], args = { program['binary'], program['args'] } })
-        -- Check if the 'defaultShellProgram' variable is not nil.
-        -- This is done so that the default terminal program is not set again and again.
-        if not defaultShellProgram then
-          -- Check if the program being iterated over is one of 'PowerShell 7', 'PowerShell 5' or 'Command Prompt'.
-          -- Between 'PowerShell 7', 'PowerShell 5' and 'Command Prompt', the program that appears first in the table 'popularProgramsOrdered', will become the default terminal program.
-          if ( ( program['binary'] == 'pwsh' ) or ( program['binary'] == 'powershell' ) or ( program['binary'] == 'cmd' ) ) then
-            -- Set the variable 'defaultShellProgram'.
-            defaultShellProgram = { program['binary'], program['args'] }
-          end
-        end
-      end
-    -- Other i.e. Unix-like systems.
-    else
-      -- Check if the program is installed.
-      if wezterm.run_child_process { 'which', program['binary'] } then
-        -- Add it to the 'launchMenuEntries' table.
-        table.insert(launchMenuEntries, { label = program['label'], args = { program['binary'], program['args'] } })
-      end
-    end
-  end
-
   -- Modifier key --
   ------------------
   -- A platform specific key that is used to trigger various keyboard actions.
   local modifierKey = nil
 
   -- On MacOS, use the 'Command' key.
-  if ( isMacOS ) then
+  if ( ( wezterm.target_triple == 'x86_64-apple-darwin' ) or ( wezterm.target_triple == 'aarch64-apple-darwin' ) ) then
     modifierKey = 'CMD'
   -- On other systems (Windows and GNU/Linux), use the 'Alt/Meta' key.
   else
@@ -130,9 +66,6 @@ else
     disable_default_key_bindings = true,
     disable_default_mouse_bindings = true,
     scrollback_lines = 100000,
-    default_prog = defaultShellProgram,
-    launch_menu = launchMenuEntries,
-    enable_wayland = true,
 
     -- Bells --
     -----------
@@ -147,7 +80,6 @@ else
     warn_about_missing_glyphs = false,
     default_cursor_style = 'SteadyBlock',
     hide_mouse_cursor_when_typing = true,
-    use_fancy_tab_bar = true,
     show_tab_index_in_tab_bar = false,
     enable_scroll_bar = false,
     window_padding = {
@@ -243,9 +175,6 @@ else
 
       -- [ modifierKey + p ] -> show command palette.
       { key = 'p', mods = modifierKey, action = wezterm.action.ActivateCommandPalette },
-
-      -- [ modifierKey + m ] -> show launcher menu.
-      { key = 'm', mods = modifierKey, action = wezterm.action.ShowLauncherArgs { flags = 'LAUNCH_MENU_ITEMS', title = 'Launch Menu' } },
 
       -- [ modifierKey + f ] -> show search overlay.
       { key = 'f', mods = modifierKey, action = wezterm.action.Search('CurrentSelectionOrEmptyString') },
