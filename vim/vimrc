@@ -1,0 +1,49 @@
+" General
+" - When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again.
+" - Disable the audio bell completely.
+" - Disable compatibility with legacy 'Vi'.
+" - Enable filetype detection.
+" - Enable syntax highlighting.
+" - Enable full colour terminal support.
+" - Set internal encoding to UTF-8.
+" - Set file encoding to UTF-8.
+set autoread
+set belloff=all
+set nocompatible
+filetype on
+syntax on
+set termguicolors
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Search
+" - Highlight matches when searching.
+set hlsearch
+
+
+
+" Visual
+" - Always enable dark mode.
+" - Enable line numbers.
+" - Highlight the current line under the cursor.
+" - Disable highlighting the current column/character under the cursor.
+" - Always show the status line.
+" - Always show the tab line.
+set background=dark
+set number
+set cursorline
+set nocursorcolumn
+set laststatus=2 
+set showtabline=2
+set statusline=%m%F%=%y[%l,%c]/%L
+set scrolloff=999
+set showbreak=>>>
+" set statusline+=\ %F\ %M\ %Y\ %R
+" set statusline+=%=
+" set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+" Indentation
+" - Copy indent from current line when starting a new line.
+" - Always expand tabs to spaces.
+set autoindent
+set expandtab
