@@ -35,7 +35,6 @@ pacstrap -i -P /mnt \
                openssl \
                pacman-contrib \
                pkgfile \
-               plymouth \
                powertop \
                reflector \
                sudo \

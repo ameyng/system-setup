@@ -12,3 +12,6 @@ printf '#!/bin/sh\n\n# Set the required environment variables and execute the ar
 
 # Set the executable flag on the created file.
 sudo chmod +x /usr/bin/prime-run
+
+# Exit with a successful error code.
+exit 0
