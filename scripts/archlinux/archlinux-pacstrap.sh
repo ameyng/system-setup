@@ -12,6 +12,7 @@ pacstrap -i -P /mnt \
                bash \
                bash-completion \
                cryptsetup \
+               dracut \
                efibootmgr \
                elinks \
                exfatprogs \
@@ -29,7 +30,6 @@ pacstrap -i -P /mnt \
                linux-lts-headers \
                lvm2 \
                man-db \
-               mkinitcpio \
                networkmanager \
                openssh \
                openssl \
