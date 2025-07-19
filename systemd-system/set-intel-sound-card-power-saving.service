@@ -1,0 +1,6 @@
+[Unit]
+Description="Enable power saving for Intel sound cards using the 'snd_hda_intel' kernel driver."
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'set -eu; timestamp="$(date)"; echo 1 > /sys/module/snd_hda_intel/parameters/power_save; echo "Set power saving parameter at: ${timestamp}"'

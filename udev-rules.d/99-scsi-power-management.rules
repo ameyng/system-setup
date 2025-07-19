@@ -1,2 +1,5 @@
 # Enable auto-suspend for the 'USB device Ultra [SanDisk]', SCSI controller.
 SUBSYSTEM=="scsi", SUBSYSTEMS=="usb", TEST=="power/control", ATTRS{idVendor}=="0781", ATTRS{idProduct}=="558a", ATTR{power/control}="auto"
+
+# Enable auto-suspend for the 'A-DATA Technology UC300', SCSI controller.
+SUBSYSTEM=="scsi", SUBSYSTEMS=="usb", TEST=="power/control", ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a320", ATTR{power/control}="auto"

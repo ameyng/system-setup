@@ -1,11 +1,9 @@
-# Copy this file into '/etc/systemd/system'.
-
 [Unit]
 Description="(Timer) Enable power saving for Intel sound cards using the 'snd_hda_intel' kernel driver."
 
 [Timer]
+OnCalendar=*:0/10
 OnBootSec=30
-OnUnitActiveSec=30min
 Persistent=true
 
 [Install]

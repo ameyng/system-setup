@@ -12,7 +12,7 @@ set belloff=all
 set nocompatible
 filetype on
 syntax on
-set termguicolors
+" set termguicolors
 set encoding=utf-8
 set fileencoding=utf-8
 

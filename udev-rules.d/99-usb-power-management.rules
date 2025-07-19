@@ -12,3 +12,8 @@ SUBSYSTEM=="usb", TEST=="power/control", ATTR{idVendor}=="046d", ATTR{idProduct}
 # Check the below link for more information -
 # https://wiki.archlinux.org/title/Power_management#USB_autosuspend
 SUBSYSTEM=="usb", TEST=="power/control", ATTR{idVendor}=="0781", ATTR{idProduct}=="558a", ATTR{power/control}="auto"
+
+# Enable auto-suspend for the 'A-DATA Technology UC300', SCSI controller.
+# Check the below link for more information -
+# https://wiki.archlinux.org/title/Power_management#USB_autosuspend
+SUBSYSTEM=="usb", TEST=="power/control", ATTR{idVendor}=="125f", ATTR{idProduct}=="a320", ATTR{power/control}="auto"
