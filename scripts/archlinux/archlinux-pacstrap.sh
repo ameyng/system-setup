@@ -29,18 +29,7 @@ pacstrap -i -P /mnt \
                lvm2 \
                man-db \
                networkmanager \
-               openssh \
-               openssl \
-               pacman-contrib \
-               pkgfile \
-               powertop \
-               reflector \
-               sudo \
                terminus-font \
-               tuned \
-               tuned-ppd \
-               unzip \
-               usbutils \
                vim
 
 # Exit with a successful error code.
