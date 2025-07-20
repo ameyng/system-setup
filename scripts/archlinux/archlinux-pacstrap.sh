@@ -14,8 +14,6 @@ pacstrap -i -P /mnt \
                cryptsetup \
                dracut \
                efibootmgr \
-               elinks \
-               exfatprogs \
                git \
                intel-ucode \
                iptables \
