@@ -17,19 +17,28 @@ if [ 0 -ne "${is_grubby_installed}" ]; then
 # Otherwise, if the 'grubby' program is installed properly.
 else
 
-  echo 'Making the following changes to all kernel entries in the GRUB bootloader:'
-  echo ' - Disable all watchdogs.'
-  echo ' - Disable the NMI watchdog explicitly.'
-  echo " - Disable the Intel 'iTCO_wdt' and the AMD 'sp5100_tco' watchdogs explicitly."
-  echo " - Disable the 'nouveau', 'nova_core' and 'nova_drm' kernel modules from being loaded at the initial ramdisk stage and later."
-  echo " - Enable the kernel mode setting parameter for the NVIDIA proprietary driver."
-  echo " - Enable a dedicated framebuffer device for the NVIDIA proprietary driver."
-  echo " - Remove the 'rhgb' and 'splash' parameters for a faster boot with no graphical elements."
-  sudo grubby --update-kernel=ALL --args='nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco modprobe.blacklist=nouveau modprobe.blacklist=nova_core modprobe.blacklist=nova_drm rd.driver.blacklist=nouveau rd.driver.blacklist=nova_core rd.driver.blacklist=nova_drm nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
-  sudo grubby --update-kernel=ALL --remove-args='rhgb splash'
-
   echo ''
   echo 'Printing the kernel command-line parameters from the default GRUB entry.'
+  echo ''
+  echo 'GRUB configuration (before):'
+  echo ''
+  sudo grubby --info=DEFAULT
+
+  echo 'Making the following changes to all kernel entries in the GRUB bootloader:'
+  echo " - Open the required LUKS2 container by its UUID as 'ROOT'."
+  echo ' - Define the block device to be mounted as the root partition.'
+  echo ' - Suppress console output during boot.'
+  echo ' - Disable PCIE active state power management as it is often broken.'
+  echo ' - Disable all watchdogs for power-saving.'
+  echo ' - Disable all open source drivers for NVIDIA GPUs.'
+  echo ' - Enable the kernel-mode setting for the proprietary NVIDIA driver.'
+  echo ' - Enable a dedicated framebuffer device for the proprietary NVIDIA driver.'
+  sudo grubby --update-kernel=ALL --args='rd.luks.name=513e6b7f-6a4b-4764-b36e-9b096c6f9400=ROOT root=/dev/mapper/ROOT quiet pcie_aspm=off nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt,sp5100_tco,nouveau,nova_core,nova_drm rd.driver.blacklist=nouveau,nova_core,nova_drm nvidia-drm.modeset=1 nvidia-drm.fbdev=1'
+
+  echo ''
+  echo 'Printing the adjusted kernel command-line parameters from the default GRUB entry.'
+  echo ''
+  echo 'GRUB configuration (before):'
   echo ''
   sudo grubby --info=DEFAULT
 
@@ -37,3 +46,9 @@ fi
 
 # Unset the variables used.
 unset is_grubby_installed
+
+echo ''
+echo 'It is recommended to reboot the system immediately.'
+
+# Exit with a successful error code.
+exit 0

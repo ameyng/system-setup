@@ -80,12 +80,12 @@ else
     warn_about_missing_glyphs = false,
     default_cursor_style = 'SteadyBlock',
     hide_mouse_cursor_when_typing = true,
-    show_tab_index_in_tab_bar = false,
+    show_tab_index_in_tab_bar = true,
     enable_scroll_bar = false,
     window_padding = {
-      left = 0,
-      right = '0.8%',
-      top = 0,
+      left = '0.8cell',
+      right = '0.8cell',
+      top = '0.8cell',
       bottom = 0
     },
     colors = {
@@ -124,6 +124,9 @@ else
     adjust_window_size_when_changing_font_size = false,
     mouse_wheel_scrolls_tabs = false,
     prefer_to_spawn_tabs = true,
+    use_fancy_tab_bar = false,
+    tab_max_width = 32,
+    tab_bar_at_bottom = true,
 
     -- Mouse bindings --
     --------------------
