@@ -11,7 +11,6 @@ echo 'Installing the required packages.'
 sudo dnf install \
          --assumeyes \
          --refresh \
-         --offline \
          --setopt=fastestmirror=True \
          --setopt=gpgcheck=True \
          --setopt=localpkg_gpgcheck=False \
@@ -25,10 +24,6 @@ sudo dnf install \
          libva-utils \
          vdpauinfo \
          vulkan-tools
-
-echo ''
-echo 'It is recommended to reboot immediately by running the below command:'
-echo 'sudo dnf offline reboot --assumeyes'
 
 # Exit with a successful error code.
 exit 0

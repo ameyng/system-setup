@@ -5,7 +5,7 @@
 set -eu
 
 # Initialize the list of targets to be installed.
-targets_to_install='aarch64-apple-darwin,aarch64-linux-android,aarch64-pc-windows-msvc,aarch64-unknown-linux-gnu,aarch64-unknown-linux-musl,wasm32-unknown-unknown,x86_64-pc-windows-gnu,x86_64-pc-windows-msvc,x86_64-unknown-linux-gnu,x86_64-unknown-linux-musl'
+targets_to_install='wasm32-unknown-unknown,aarch64-unknown-linux-gnu,aarch64-unknown-linux-musl,x86_64-unknown-linux-gnu,x86_64-unknown-linux-musl'
 
 # Initialize a sub-shell.
 (

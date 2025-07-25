@@ -2,7 +2,7 @@
 Description="(Timer) Enable power saving for Intel sound cards using the 'snd_hda_intel' kernel driver."
 
 [Timer]
-OnCalendar=*:0/10
+OnCalendar=*:0/30
 OnBootSec=30
 Persistent=true
 

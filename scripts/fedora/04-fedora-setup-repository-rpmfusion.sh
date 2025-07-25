@@ -35,7 +35,7 @@ if [ -f "/usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-free-f
   echo ''
   echo "Updating AppStream metadata for the 'RPM Fusion' free repositories."
   sudo dnf install \
-           --assumeno \
+           --assumeyes \
            --refresh \
            --setopt=fastestmirror=True \
            --setopt=gpgcheck=True \
@@ -75,7 +75,7 @@ if [ -f "/usr/share/distribution-gpg-keys/rpmfusion/RPM-GPG-KEY-rpmfusion-nonfre
   echo ''
   echo "Updating AppStream metadata for the 'RPM Fusion' non-free repositories."
   sudo dnf install \
-           --assumeno \
+           --assumeyes \
            --refresh \
            --setopt=fastestmirror=True \
            --setopt=gpgcheck=True \

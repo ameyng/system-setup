@@ -9,6 +9,7 @@ sudo dnf remove \
 	 --offline \
 	 --assumeyes \
 	 --refresh \
+         podman \
 	 amd-gpu-firmware \
 	 amd-ucode-firmware \
 	 atheros-firmware \
@@ -19,7 +20,6 @@ sudo dnf remove \
 	 mt7xxx-firmware \
 	 nxpwireless-firmware \
 	 tiwilink-firmware \
-         plymouth \
 	 yelp \
 	 snapshot \
 	 gnome-contacts \
@@ -39,7 +39,6 @@ sudo dnf remove \
 	 simple-scan \
 	 gnome-font-viewer \
 	 loupe \
-	 gnome-abrt \
 	 gnome-characters \
 	 rhythmbox \
 	 gnome-tour \
