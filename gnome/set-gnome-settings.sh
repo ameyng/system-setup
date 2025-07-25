@@ -67,10 +67,10 @@ gsettings set org.gnome.shell enabled-extensions "[]"
 
 # GNOME software
 echo 'GNOME Software'
-echo '- Disable automatic download/installation software updates.'
 echo "- Show user ratings in the 'GNOME Software' application."
-gsettings set org.gnome.software download-updates false
+echo '- Disable the dialog box that prompts for enabling additional software repositories.'
 gsettings set org.gnome.software show-ratings true
+gsettings set org.gnome.software enable-repos-dialog false
 
 # Window preferences
 echo 'Window prefrences'
@@ -109,7 +109,6 @@ echo '- Show the timestamps in a 12 hour format.'
 echo '- Include the time along with the date in the timestamp.'
 echo '- Show hidden files.'
 echo '- Sort directories first.'
-echo '- Set the baseline window size to 1366x768'
 gsettings set org.gtk.gtk4.Settings.FileChooser clock-format '12h'
 gsettings set org.gtk.Settings.FileChooser clock-format '12h'
 gsettings set org.gtk.gtk4.Settings.FileChooser date-format 'with-time'
@@ -118,8 +117,6 @@ gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
 gsettings set org.gtk.Settings.FileChooser show-hidden true
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
-gsettings set org.gtk.gtk4.Settings.FileChooser window-size '(1366,768)'
-gsettings set org.gtk.Settings.FileChooser window-size '(1366,768)'
 
 # Miscellaneous
 echo 'Miscellaneous'
