@@ -38,6 +38,7 @@ pacstrap -i -P /mnt \
                reflector \
                sudo \
                terminus-font \
+               tmux \
                unzip \
                usbutils \
                vim
