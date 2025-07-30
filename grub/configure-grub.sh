@@ -25,7 +25,7 @@ else
   echo ' - Enable the kernel-mode setting for the proprietary NVIDIA driver.'
   echo ' - Enable a dedicated framebuffer device for the proprietary NVIDIA driver.'
   echo " - Remove the 'rhgb' parameter as it is old and obsolete and replace it with the newer 'splash' parameter."
-  sudo grubby --update-kernel=ALL --args='quiet pcie_aspm=off nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt,sp5100_tco,nouveau,nova_core,nova_drm rd.driver.blacklist=iTCO_wdt,sp5100_tco,nouveau,nova_core,nova_drm nvidia-drm.modeset=1 nvidia-drm.fbdev=1 splash' --remove-args='rhgb \$tuned_params'
+  sudo grubby --update-kernel=ALL --args='root=/dev/mapper/ROOT quiet pcie_aspm=off nowatchdog nmi_watchdog=0 modprobe.blacklist=iTCO_wdt,sp5100_tco,nouveau,nova_core,nova_drm rd.driver.blacklist=iTCO_wdt,sp5100_tco,nouveau,nova_core,nova_drm nvidia-drm.modeset=1 nvidia-drm.fbdev=1 splash' --remove-args='rhgb \$tuned_params'
 
   echo ''
   echo 'Printing the adjusted kernel command-line parameters from the default GRUB entry.'

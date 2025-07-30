@@ -8,12 +8,12 @@ set -eu
 echo 'Installing the required packages.'
 pacstrap -i -P /mnt \
                base \
-               base-devel \
                bash \
                bash-completion \
                cryptsetup \
                dracut \
                efibootmgr \
+               fwupd \
                git \
                intel-ucode \
                iptables \
@@ -23,13 +23,23 @@ pacstrap -i -P /mnt \
                linux-firmware-nvidia \
                linux-firmware-other \
                linux-firmware-realtek \
-               linux-firmware-whence \
                linux-lts \
                linux-lts-headers \
                lvm2 \
                man-db \
+               mkinitcpio \
                networkmanager \
+               openssh \
+               openssl \
+               pacman-contrib \
+               pkgfile \
+               plymouth \
+               powertop \
+               reflector \
+               sudo \
                terminus-font \
+               unzip \
+               usbutils \
                vim
 
 # Exit with a successful error code.
