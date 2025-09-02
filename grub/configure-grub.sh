@@ -17,6 +17,13 @@ if [ 0 -ne "${is_grubby_installed}" ]; then
 # Otherwise, if the 'grubby' program is installed properly.
 else
 
+  echo ''
+  echo 'Printing the kernel command-line parameters from the default GRUB entry.'
+  echo ''
+  echo 'GRUB configuration (before):'
+  echo ''
+  sudo grubby --info=DEFAULT
+
   echo 'Making the following changes to all kernel entries in the GRUB bootloader:'
   echo " - Remove the 'rhgb' parameter as it is old and obsolete and replace it with the newer 'splash' parameter."
   echo ' - Suppress console output during boot.'
@@ -30,7 +37,7 @@ else
   echo ''
   echo 'Printing the adjusted kernel command-line parameters from the default GRUB entry.'
   echo ''
-  echo 'GRUB configuration (before):'
+  echo 'GRUB configuration (after):'
   echo ''
   sudo grubby --info=DEFAULT
 

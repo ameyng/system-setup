@@ -2,6 +2,7 @@
 Description="Enable power saving for Intel sound cards using the 'snd_hda_intel' kernel driver."
 
 [Service]
+ConditionPathExists=/sys/module/snd_hda_intel/parameters/power_save
 Type=oneshot
 User=root
 Group=root

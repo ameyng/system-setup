@@ -10,16 +10,6 @@ sudo dnf remove \
 	 --assumeyes \
 	 --refresh \
          podman \
-	 amd-gpu-firmware \
-	 amd-ucode-firmware \
-	 atheros-firmware \
-	 brcmfmac-firmware \
-	 iwlegacy-firmware \
-	 iwlwifi-dvm-firmware \
-	 libertas-firmware \
-	 mt7xxx-firmware \
-	 nxpwireless-firmware \
-	 tiwilink-firmware \
 	 yelp \
 	 snapshot \
 	 gnome-contacts \

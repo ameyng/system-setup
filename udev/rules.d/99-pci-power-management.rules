@@ -46,3 +46,6 @@ SUBSYSTEM=="pci", KERNEL=="0000:03:01.0", TEST=="power/control", ATTR{vendor}=="
 
 # Intel Corporation Device 1133 (another of the PCI ports).
 SUBSYSTEM=="pci", KERNEL=="0000:03:03.0", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x1133", ATTR{power/control}="auto"
+
+# AMD Strix Data Fabric Function 2.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16fa", ATTR{power/control}="auto"

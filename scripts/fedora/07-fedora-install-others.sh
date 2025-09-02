@@ -13,10 +13,7 @@ sudo dnf install \
          --setopt=fastestmirror=True \
          --setopt=gpgcheck=True \
          --setopt=localpkg_gpgcheck=True \
-         wezterm \
-         brave-browser \
          ffmpeg \
-         intel-media-driver
 
 # Exit with a successful error code.
 exit 0

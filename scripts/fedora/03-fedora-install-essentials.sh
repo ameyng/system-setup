@@ -8,13 +8,13 @@ echo 'Installing the required packages.'
 sudo dnf install \
          --assumeyes \
          --refresh \
+         --allowerasing \
          --setopt=fastestmirror=True \
          --setopt=gpgcheck=True \
          --setopt=localpkg_gpgcheck=True \
 	 vim \
+         ffmpeg \
 	 git \
-	 kmodtool \
-	 akmods \
 	 mokutil \
 	 openssl \
 	 ShellCheck \

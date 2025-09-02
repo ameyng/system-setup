@@ -11,18 +11,13 @@ pacstrap -i -P /mnt \
                bash \
                bash-completion \
                cryptsetup \
-               dracut \
                efibootmgr \
                fwupd \
                git \
-               intel-ucode \
+               amd-ucode \
                iptables \
                iwd \
-               linux-firmware-cirrus \
-               linux-firmware-intel \
-               linux-firmware-nvidia \
-               linux-firmware-other \
-               linux-firmware-realtek \
+               linux-firmware \
                linux-lts \
                linux-lts-headers \
                lvm2 \
@@ -39,9 +34,12 @@ pacstrap -i -P /mnt \
                sudo \
                terminus-font \
                tmux \
+               tuned \
+               tuned-ppd \
                unzip \
                usbutils \
-               vim
+               vim \
+               zram-generator
 
 # Exit with a successful error code.
 exit 0
