@@ -41,11 +41,49 @@ SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="
 # Intel Corporation Raptor Lake PCI Express Root Port #25.
 SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x7a48", ATTR{power/control}="auto"
 
-# Intel Corporation Device 1133 (one of the PCI ports).
+# Intel Corporation 1133 devices.
 SUBSYSTEM=="pci", KERNEL=="0000:03:01.0", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x1133", ATTR{power/control}="auto"
-
-# Intel Corporation Device 1133 (another of the PCI ports).
 SUBSYSTEM=="pci", KERNEL=="0000:03:03.0", TEST=="power/control", ATTR{vendor}=="0x8086", ATTR{device}=="0x1133", ATTR{power/control}="auto"
 
-# AMD Strix Data Fabric Function 2.
+# Qualcomm Technologies Inc WCN785x Wi-Fi 7(802.11be) 320MHz 2x2 (FastConnect 7800).
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x17cb", ATTR{device}=="0x1107", ATTR{power/control}="auto"
+
+# KIOXIA Corporation NVMe SSD Controller XG8.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1e0f", ATTR{device}=="0x0010", ATTR{power/control}="auto"
+
+# AMD Strix Data Fabric Functions.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16f8", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16f9", ATTR{power/control}="auto"
 SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16fa", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16fb", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16fc", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16fd", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16fe", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x16ff", ATTR{power/control}="auto"
+
+# AMD Strix/Strix Halo Dummy Host Bridges.
+SUBSYSTEM=="pci", KERNEL=="0000:00:01.0", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1509", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", KERNEL=="0000:00:02.0", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1509", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", KERNEL=="0000:00:03.0", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1509", ATTR{power/control}="auto"
+SUBSYSTEM=="pci", KERNEL=="0000:00:08.0", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1509", ATTR{power/control}="auto"
+
+# AMD Strix/Krackan/Strix Halo CCP/ASP.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x17e0", ATTR{power/control}="auto"
+
+# AMD FCH SMBus Controller.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x790b", ATTR{power/control}="auto"
+
+# AMD FCH LPC Bridge.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x790e", ATTR{power/control}="auto"
+
+# AMD/ATI Strix Radeon 880M/890M.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1002", ATTR{device}=="0x150e", ATTR{power/control}="auto"
+
+# AMD Strix/Strix Halo PCIe Dummy Function.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x150d", ATTR{power/control}="auto"
+
+# AMD Strix/Strix Halo Root Complex.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1507", ATTR{power/control}="auto"
+
+# AMD Strix/Strix Halo IOMMU.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1508", ATTR{power/control}="auto"
