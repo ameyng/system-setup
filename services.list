@@ -1,7 +1,9 @@
 NetworkManager.service
+bluetooth.service
 systemd-resolved.service
 tuned.service
 tuned-ppd.service
 fstrim.timer
 set-intel-sound-card-power-saving.service
 lactd.service
+ssh-agent.service

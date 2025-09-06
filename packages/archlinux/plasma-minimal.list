@@ -1,4 +1,6 @@
+alacritty
 alsa-utils
+bluedevil
 breeze-gtk
 breeze-plymouth
 colord-kde
@@ -15,6 +17,7 @@ kwallet-pam
 libappindicator-gtk2
 libappindicator-gtk3
 phonon-qt6-vlc
+pipewire-jack
 pipewire-pulse
 plasma-browser-integration
 plasma-desktop
@@ -23,6 +26,7 @@ plasma-pa
 plasma-workspace
 powerdevil
 print-manager
+qt6-multimedia-ffmpeg
 sddm
 sddm-kcm
 system-config-printer

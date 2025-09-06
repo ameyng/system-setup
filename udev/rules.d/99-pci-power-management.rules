@@ -87,3 +87,6 @@ SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="
 
 # AMD Strix/Strix Halo IOMMU.
 SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x1508", ATTR{power/control}="auto"
+
+# AMD Strix/Krackan/Strix Halo Neural Processing Unit.
+SUBSYSTEM=="pci", TEST=="power/control", ATTR{vendor}=="0x1022", ATTR{device}=="0x17f0", ATTR{power/control}="auto"

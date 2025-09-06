@@ -1,0 +1,9 @@
+[Unit]
+Description="Enable power saving for high-definition audio using the 'snd_hda_intel' kernel driver."
+ConditionPathExists=/sys/module/snd_hda_intel/parameters/power_save
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/bin/sh -c 'set -eu; echo 1 > /sys/module/snd_hda_intel/parameters/power_save; exit 0'

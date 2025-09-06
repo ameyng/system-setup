@@ -9,6 +9,7 @@ echo 'Installing the required packages.'
 pacstrap -i -P /mnt \
                base \
                bash \
+               bluez \
                bash-completion \
                cryptsetup \
                efibootmgr \
