@@ -9,6 +9,7 @@ sudo dnf remove \
 	 --offline \
 	 --assumeyes \
 	 --refresh \
+         abrt \
          podman \
 	 yelp \
 	 snapshot \
@@ -30,6 +31,7 @@ sudo dnf remove \
 	 gnome-font-viewer \
 	 loupe \
 	 gnome-characters \
+         okular \
 	 rhythmbox \
 	 gnome-tour \
 	 gnome-calendar \
@@ -53,6 +55,8 @@ sudo dnf remove \
 	 khelpcenter \
 	 kinfocenter \
 	 plasma-welcome \
+         dolphin \
+         plasma-discover \
 	 akregator \
 	 grantlee-editor \
 	 kde-connect \

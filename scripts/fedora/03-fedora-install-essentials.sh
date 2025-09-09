@@ -20,7 +20,8 @@ sudo dnf install \
 	 ShellCheck \
 	 shfmt \
 	 powertop \
-	 iwd
+         flatpak \
+         flatpak-selinux
 
 # Exit with a successful error code.
 exit 0

@@ -23,6 +23,7 @@ else
   echo 'GRUB configuration (before):'
   echo ''
   sudo grubby --info=DEFAULT
+  echo ''
 
   echo 'Making the following changes to all kernel entries in the GRUB bootloader:'
   echo " - Remove the 'rhgb' parameter as it is old and obsolete and replace it with the newer 'splash' parameter."
