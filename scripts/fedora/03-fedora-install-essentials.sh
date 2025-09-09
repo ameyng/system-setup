@@ -13,15 +13,13 @@ sudo dnf install \
          --setopt=gpgcheck=True \
          --setopt=localpkg_gpgcheck=True \
 	 vim \
-         ffmpeg \
 	 git \
 	 mokutil \
 	 openssl \
 	 ShellCheck \
 	 shfmt \
 	 powertop \
-         flatpak \
-         flatpak-selinux
+         flatpak
 
 # Exit with a successful error code.
 exit 0
