@@ -1,5 +1,8 @@
-# Cap the battery charging to '80%' to prolong the battery lifespan.
-# This will only work on ASUS laptops but will not cause problems on other vendors' products.
-# Check the below link for more information -
-# https://wiki.archlinux.org/title/Laptop/ASUS#udev_rule
+# The below interfaces are supported on most modern hardware.
+# If these interfaces are not supported, the below rules will still not cause any problems.
+
+# Set the battery to stop charging at 80%.
 SUBSYSTEM=="power_supply", TEST=="charge_control_end_threshold", ATTR{charge_control_end_threshold}="80"
+
+# Set the battery to start charging below 35%.
+SUBSYSTEM=="power_supply", TEST=="charge_control_start_threshold", ATTR{charge_control_start_threshold}="35"

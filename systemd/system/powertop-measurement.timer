@@ -1,0 +1,10 @@
+[Unit]
+Description="(Timer) Measure battery statistics using the 'powertop' program."
+
+[Timer]
+OnCalendar=*:0/1
+OnBootSec=30
+Persistent=true
+
+[Install]
+WantedBy=timers.target

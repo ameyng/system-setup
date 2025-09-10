@@ -1,0 +1,9 @@
+[Unit]
+Description="Measure battery statistics using the 'powertop' program."
+ConditionFileIsExecutable=/usr/bin/powertop
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/bin/sh -c 'set -eu; /usr/bin/powertop --csv=/tmp/powertop.csv; rm -v /tmp/powertop.csv; exit 0'
