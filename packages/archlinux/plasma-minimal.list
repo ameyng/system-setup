@@ -1,13 +1,12 @@
 alacritty
+qt6-multimedia-ffmpeg
 alsa-utils
 bluedevil
 breeze-gtk
 breeze-plymouth
 colord-kde
 cups
-ffmpegthumbs
 ibus
-kdegraphics-thumbnailers
 kde-gtk-config
 kscreen
 ksshaskpass
@@ -26,7 +25,6 @@ plasma-pa
 plasma-workspace
 powerdevil
 print-manager
-qt6-multimedia-ffmpeg
 sddm
 sddm-kcm
 system-config-printer
